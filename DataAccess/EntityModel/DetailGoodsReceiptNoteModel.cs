@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class DetailGoodReceiptNoteModel
+    public class DetailGoodsReceiptNoteModel
     {
         public Guid Id { get; set; }
         public Guid GoodsReceiptNodeId { get; set; }
