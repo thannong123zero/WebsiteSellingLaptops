@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class InvoiceDetailsConfiguration : IEntityTypeConfiguration<InvoiceDetailsModel>
+    public class DetailBuyBillConfiguration : IEntityTypeConfiguration<DetailBuyBillModel>
     {
-        public void Configure(EntityTypeBuilder<InvoiceDetailsModel> builder)
+        public void Configure(EntityTypeBuilder<DetailBuyBillModel> builder)
         {
             throw new NotImplementedException();
         }

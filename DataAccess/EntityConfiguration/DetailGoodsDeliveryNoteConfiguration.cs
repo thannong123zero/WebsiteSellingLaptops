@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class ProductInRepositoryConfiguration : IEntityTypeConfiguration<ProductInRepositoryModel>
+    public class DetailGoodsDeliveryNoteConfiguration : IEntityTypeConfiguration<DetailGoodsDeliveryNoteModel>
     {
-        public void Configure(EntityTypeBuilder<ProductInRepositoryModel> builder)
+        public void Configure(EntityTypeBuilder<DetailGoodsDeliveryNoteModel> builder)
         {
             throw new NotImplementedException();
         }

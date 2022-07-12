@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class AdminConfiguration : IEntityTypeConfiguration<AdminModel>
+    public class AccountConfiguration : IEntityTypeConfiguration<AccountModel>
     {
-        public void Configure(EntityTypeBuilder<AdminModel> builder)
+        public void Configure(EntityTypeBuilder<AccountModel> builder)
         {
             throw new NotImplementedException();
         }

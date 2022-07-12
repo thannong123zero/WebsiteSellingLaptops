@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class KindOfBillModel
+    public class GoodsReceiptNoteModel
     {
         public Guid Id { get; set; }
-        public string KindOfBillName { get; set; }
+        public Guid EmployeeId { get; set; }
+        public DateTime CreateAt { get; set; }
     }
 }

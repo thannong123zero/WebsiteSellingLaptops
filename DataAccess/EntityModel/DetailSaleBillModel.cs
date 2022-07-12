@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class WareHourseModel
+    public class DetailSaleBillModel
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public Guid SaleBillId { get; set; }
+        public Guid ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 }

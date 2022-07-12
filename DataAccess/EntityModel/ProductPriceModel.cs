@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class ProductInRepositoryModel
+    public class ProductPriceModel
     {
         public Guid Id { get; set; }
-        public Guid ProductId { get; set; }
-        public Guid WareHourse { get; set; }
-        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public int Discount { get; set; }
+        public DateTime CreateAt { get; set; }
     }
 }
