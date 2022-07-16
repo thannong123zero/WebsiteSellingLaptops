@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.IRepositories
+namespace DataAccess.EntityConfiguration
 {
-    public interface IGoodsReceiptNoteRepository
+    internal class TypeBillConfiguration
     {
     }
 }

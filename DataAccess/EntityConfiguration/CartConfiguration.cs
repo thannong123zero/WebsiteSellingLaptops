@@ -13,7 +13,10 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<CartModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.TotalMoney).IsRequired();
+            builder.Property(s => s.CreatAt).HasDefaultValue(DateTime.Now);
+
         }
     }
 }

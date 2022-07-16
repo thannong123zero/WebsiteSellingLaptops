@@ -13,5 +13,7 @@ namespace DataAccess.EntityModel
         public string Gmail { get; set; }
         public string NumberPhone { get; set; }
         public string Address { get; set; }
+        public CartModel Cart { get; set; }
+        public ICollection<SaleBillModel> SaleBills { get; set; }
     }
 }

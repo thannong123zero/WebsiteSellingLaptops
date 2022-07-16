@@ -12,5 +12,7 @@ namespace DataAccess.EntityModel
         public Guid SaleBillId { get; set; }
         public Guid ProductId { get; set; }
         public int Quantity { get; set; }
+        public SaleBillModel SaleBill { get; set; }
+        public ProductModel Product { get; set; }
     }
 }

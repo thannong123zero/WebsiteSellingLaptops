@@ -11,5 +11,6 @@ namespace DataAccess.EntityModel
         public Guid Id { get; set; }
         public string CategoryName { get; set; }
         public bool IsDeleted { get; set; }
+        public ICollection<SubCategoryModel> SubCategories { get; set; }
     }
 }

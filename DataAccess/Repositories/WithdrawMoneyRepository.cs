@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.IRepositories
+namespace DataAccess.Repositories
 {
-    public interface IDetailGoodsReceiptNoteRepository
+    public class WithdrawMoneyRepository
     {
     }
 }

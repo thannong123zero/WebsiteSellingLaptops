@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class DetailGoodsDeliveryNoteConfiguration : IEntityTypeConfiguration<DetailGoodsDeliveryNoteModel>
+    public class BillTypeConfiguration : IEntityTypeConfiguration<BillTypeModel>
     {
-        public void Configure(EntityTypeBuilder<DetailGoodsDeliveryNoteModel> builder)
+        public void Configure(EntityTypeBuilder<BillTypeModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
+
         }
     }
 }

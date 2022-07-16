@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class DetailGoodsReceiptNoteConfiguration : IEntityTypeConfiguration<DetailGoodsReceiptNoteModel>
+    public class ValletConfiguration : IEntityTypeConfiguration<ValletModel>
     {
-        public void Configure(EntityTypeBuilder<DetailGoodsReceiptNoteModel> builder)
+        public void Configure(EntityTypeBuilder<ValletModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Money).HasDefaultValue(0);
         }
     }
 }

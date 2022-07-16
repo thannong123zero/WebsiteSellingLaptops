@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class DetailGoodsReceiptNoteRepository
+    public class DetailGoodsBillRepository
     {
     }
 }

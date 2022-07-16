@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class DetailBuyBillConfiguration : IEntityTypeConfiguration<DetailBuyBillModel>
+    public class DetailGoodsBillConfiguration : IEntityTypeConfiguration<DetailGoodsBillModel>
     {
-        public void Configure(EntityTypeBuilder<DetailBuyBillModel> builder)
+        public void Configure(EntityTypeBuilder<DetailGoodsBillModel> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Quantity).IsRequired();
             builder.Property(s => s.Price).IsRequired();
-            builder.HasOne(s => s.BuyBill).WithMany(g => g.DetailBuyBills).HasForeignKey(s => s.BuyBillId);
-            builder.HasOne(s => s.Product).WithMany(g => g.DetailBuyBills).HasForeignKey(s => s.ProductId);
+            builder.HasOne(s => s.GoodsBill).WithMany(g => g.DetailGoodsBills).HasForeignKey(s => s.GoodsBillId);
+            builder.HasOne(s => s.Product).WithMany(g => g.DetailGoodsBills).HasForeignKey(s => s.ProductId);
         }
     }
 }

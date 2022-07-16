@@ -13,7 +13,12 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<ProducerModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Name).IsRequired().HasMaxLength(125);
+            builder.Property(s => s.NumberPhone).HasMaxLength(10);
+            builder.Property(s => s.Address).HasMaxLength(225);
+            builder.Property(s => s.IsDelete).HasDefaultValue(false);
+
         }
     }
 }

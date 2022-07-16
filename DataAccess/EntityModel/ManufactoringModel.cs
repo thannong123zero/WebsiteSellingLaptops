@@ -10,5 +10,6 @@ namespace DataAccess.EntityModel
     {
         public Guid Id { get; set; }
         public string MadeIn { get; set; }
+        public ICollection<ProductModel> Products { get; set; }
     }
 }

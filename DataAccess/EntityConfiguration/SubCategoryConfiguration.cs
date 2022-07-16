@@ -13,7 +13,11 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<SubCategoryModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.SubCategoryName).IsRequired().HasMaxLength(125);
+            builder.Property(s => s.IsDeleted).HasDefaultValue(false);
+
+            builder.HasOne<CategoryModel>(s => s.Category).WithMany(g => g.SubCategories).HasForeignKey(s => s.CategoryId);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepositories
 {
-    public interface IDetailGoodsDeliveryNoteRepository
+    public interface IDetailGoodsBillRepository
     {
     }
 }

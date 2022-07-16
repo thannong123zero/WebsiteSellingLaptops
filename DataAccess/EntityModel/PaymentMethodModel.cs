@@ -10,5 +10,7 @@ namespace DataAccess.EntityModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public ICollection<SaleBillModel> SaleBills { get; set; }
+        public ICollection<BuyBillModel> BuyBills { get; set; }
     }
 }

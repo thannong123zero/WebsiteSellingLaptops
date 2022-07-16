@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class ProducerModel
+    public class ValletModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
-        public string NumberPhone { get; set; }
-        public bool IsDelete { get; set; }
-        public ICollection<BuyBillModel> BuyBills { get; set; }
+        public double Money { get; set; }
+        public ICollection<WithdrawMoneyModel> WithdrawMoneys { get; set; }
+        public ICollection<ReceiptModel> Receipts { get; set; }
     }
 }

@@ -13,7 +13,9 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<AccountModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.UserName).IsRequired().HasMaxLength(125);
+            builder.Property(s => s.Password).IsRequired().HasMaxLength(125);
         }
     }
 }

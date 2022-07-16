@@ -12,5 +12,7 @@ namespace DataAccess.EntityModel
         public Guid CategoryId { get; set; }
         public string SubCategoryName { get; set; }
         public bool IsDeleted { get; set; }
+        public CategoryModel Category { get; set; }
+        public ICollection<ProductModel> Products { get; set; }
     }
 }

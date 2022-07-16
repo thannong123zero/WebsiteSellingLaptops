@@ -13,7 +13,11 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<DetailCartModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Quantity).IsRequired();
+
+            builder.HasOne<ProductModel>(s => s.Product).WithMany(g => g.DetailCarts).HasForeignKey(s => s.ProductId);
+            builder.HasOne<CartModel>(s => s.Cart).WithMany(g => g.DetailCarts).HasForeignKey(s => s.CartId);
         }
     }
 }

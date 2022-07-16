@@ -13,7 +13,11 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<DetailStockModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.quantity).IsRequired();
+
+            builder.HasOne(s => s.WareHourse).WithMany(g => g.DetailStocks).HasForeignKey(s => s.WareHourseId);
+            builder.HasOne(s => s.Product).WithMany(g => g.DetailStocks).HasForeignKey(s => s.ProductId);
         }
     }
 }

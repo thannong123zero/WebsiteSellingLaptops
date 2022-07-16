@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class ReceiptModel
+    public class WithdrawMoneyModel
     {
         public Guid Id { get; set; }
         public Guid ValletId { get; set; }
+        public Guid MethodKindId { get; set; }
         public Guid UserId { get; set; }
-        public Guid SaleBillId { get; set; }
-        public double CollectMoney { get; set; }
+        public double Money { get; set; }
         public DateTime CreateAt { get; set; }
-        public ValletModel Vallet { get; set; }
+        public string Note { get; set; }
         public UserModel User { get; set; }
-        public SaleBillModel SaleBill { get; set; }
+        public ValletModel Vallet { get; set; }
+        public MethodKindModel MethodKind { get; set; }
 
     }
 }

@@ -13,7 +13,8 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<PaymentMethodModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
         }
     }
 }

@@ -13,7 +13,9 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<CategoryModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.CategoryName).IsRequired().HasMaxLength(125);
+            builder.Property(s => s.IsDeleted).HasDefaultValue(false);
         }
     }
 }

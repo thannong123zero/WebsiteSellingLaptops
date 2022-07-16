@@ -11,7 +11,13 @@ namespace DataAccess.EntityModel
         public Guid Id { get; set; }
         public Guid EmployeeId { get; set; }
         public Guid PaymentMethodId { get; set; }
+        public Guid CustomerId { get; set; }
         public double TotalValue { get; set; }
         public DateTime CreateAt { get; set; }
+        public UserModel User { get; set; }
+        public PaymentMethodModel PaymentMethod { get; set; }
+        public ReceiptModel Receipt { get; set; }
+        public CustomerModel Customer { get; set; }
+        public ICollection<DetailSaleBillModel> DetailSaleBills { get; set; }
     }
 }

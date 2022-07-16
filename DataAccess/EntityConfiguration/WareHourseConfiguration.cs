@@ -13,7 +13,9 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<WareHourseModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
+            builder.Property(s => s.Address).IsRequired().HasMaxLength(225);
         }
     }
 }

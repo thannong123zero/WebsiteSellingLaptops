@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class PaySipModel
+    public class BillTypeModel
     {
         public Guid Id { get; set; }
-        public double Money { get; set; }
-        public DateTime CreateAt { get; set; }
+        public string Name { get; set; }
+        public ICollection<GoodsBillModel> GoodsBills { get; set; }
     }
 }

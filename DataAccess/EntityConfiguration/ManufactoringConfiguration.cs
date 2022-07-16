@@ -13,7 +13,8 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<ManufactoringModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.MadeIn).IsRequired().HasMaxLength(125);
         }
     }
 }

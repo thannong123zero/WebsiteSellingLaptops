@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class GoodsReceiptNoteConfiguration : IEntityTypeConfiguration<GoodsReceiptNoteModel>
+    public class MethodKindConfiguration : IEntityTypeConfiguration<MethodKindModel>
     {
-        public void Configure(EntityTypeBuilder<GoodsReceiptNoteModel> builder)
+        public void Configure(EntityTypeBuilder<MethodKindModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
         }
     }
 }

@@ -13,7 +13,11 @@ namespace DataAccess.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<ReceiptModel> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+            builder.Property(s => s.CollectMoney).IsRequired();
+            builder.Property(s => s.CreateAt).HasDefaultValue(DateTime.Now);
+
+            builder.HasOne(s => s.Vallet).WithMany(g => g.Receipts).HasForeignKey(s => s.ValletId);
         }
     }
 }
