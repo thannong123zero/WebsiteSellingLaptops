@@ -20,4 +20,4 @@ namespace DataAccess.EntityConfiguration
         }
     }
 }
-}
+

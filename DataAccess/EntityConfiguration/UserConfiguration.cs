@@ -20,13 +20,13 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.Address).IsRequired().HasMaxLength(225);
             builder.Property(s => s.NumberPhone).IsRequired().HasMaxLength(10);
             builder.Property(s => s.IsDelete).HasDefaultValue(false);
-            builder.Property(s => s.BirthDay).HasDefaultValue(true);
+            builder.Property(s => s.IsActive).HasDefaultValue(false);
             builder.Property(s => s.CitizenId).IsRequired().HasMaxLength(15);
             builder.Property(s => s.CreateAt).HasDefaultValue(DateTime.Now);
 
             builder.HasOne(s => s.Role).WithMany(g => g.Users).HasForeignKey(s => s.RoleId);
             builder.HasOne<AccountModel>(s => s.Account).WithOne(sa => sa.User).HasForeignKey<AccountModel>(s => s.UserId);
-            builder.HasOne<ReceiptModel>(s => s.Receipt).WithOne(sa => sa.User).HasForeignKey<AccountModel>(s => s.UserId);
+            builder.HasOne<ReceiptModel>(s => s.Receipt).WithOne(sa => sa.User).HasForeignKey<ReceiptModel>(s => s.UserId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

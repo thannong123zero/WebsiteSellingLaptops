@@ -18,7 +18,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.CreatAt).HasDefaultValue(DateTime.Now);
 
             builder.HasOne(s => s.Producer).WithMany(g => g.BuyBills).HasForeignKey(s => s.ProducerId);
-            builder.HasOne(s => s.User).WithMany(g => g.BuyBills).HasForeignKey(s => s.EmployeeId);
+            builder.HasOne(s => s.User).WithMany(g => g.BuyBills).HasForeignKey(s => s.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(s => s.PaymentMethod).WithMany(g => g.BuyBills).HasForeignKey(s => s.PaymentMethodId);
         }
     }

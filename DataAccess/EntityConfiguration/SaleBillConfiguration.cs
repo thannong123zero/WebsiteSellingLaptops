@@ -19,7 +19,7 @@ namespace DataAccess.EntityConfiguration
 
             builder.HasOne<CustomerModel>(s => s.Customer).WithMany(g => g.SaleBills).HasForeignKey(s => s.CustomerId);
             builder.HasOne<PaymentMethodModel>(s => s.PaymentMethod).WithMany(g => g.SaleBills).HasForeignKey(s => s.PaymentMethodId);
-            builder.HasOne<UserModel>(s => s.User).WithMany(g => g.SaleBills).HasForeignKey(s => s.EmployeeId);
+            builder.HasOne<UserModel>(s => s.User).WithMany(g => g.SaleBills).HasForeignKey(s => s.EmployeeId).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne<ReceiptModel>(s => s.Receipt).WithOne(sa => sa.SaleBill).HasForeignKey<ReceiptModel>(s => s.SaleBillId);
         }
     }

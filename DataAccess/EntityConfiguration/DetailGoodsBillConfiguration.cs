@@ -17,7 +17,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.Quantity).IsRequired();
             builder.Property(s => s.Price).IsRequired();
             builder.HasOne(s => s.GoodsBill).WithMany(g => g.DetailGoodsBills).HasForeignKey(s => s.GoodsBillId);
-            builder.HasOne(s => s.Product).WithMany(g => g.DetailGoodsBills).HasForeignKey(s => s.ProductId);
+            builder.HasOne(s => s.Product).WithMany(g => g.DetailGoodsBills).HasForeignKey(s => s.ProductId).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
