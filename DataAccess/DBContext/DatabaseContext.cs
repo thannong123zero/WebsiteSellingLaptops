@@ -39,7 +39,7 @@ namespace DataAccess.DBContext
         public DbSet<ValletModel> Vallet { get; set; }
         public DbSet<WareHourseModel> WareHourse { get; set; }
         #endregion
-        //public DatabaseContext() : base() { }
+        public DatabaseContext() : base() { }
         public DatabaseContext(DbContextOptions options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

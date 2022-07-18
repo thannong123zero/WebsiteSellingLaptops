@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepositories
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        void SaveChanges();
+        Task SaveChangesAsync();
     }
 }
