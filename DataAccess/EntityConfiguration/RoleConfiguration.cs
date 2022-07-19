@@ -1,4 +1,5 @@
 ﻿using DataAccess.EntityModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -9,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<RoleModel>
+    public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole<Guid>>
     {
-        public void Configure(EntityTypeBuilder<RoleModel> builder)
+        public void Configure(EntityTypeBuilder<IdentityRole<Guid>> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(s => s.Name).IsRequired().HasMaxLength(20);
+            builder.HasData(
+                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Admin" },
+                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Staff" });
         }
     }
 }

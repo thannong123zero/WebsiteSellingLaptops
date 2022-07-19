@@ -1,4 +1,6 @@
 ﻿using DataAccess.EntityModel;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DBContext
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext :  IdentityDbContext<UserModel,IdentityRole<Guid>,Guid>
     {
         #region DbsetEntity
-        public DbSet<AccountModel> Account { get; set; }
+        
         public DbSet<BuyBillModel> BuyBill { get; set; }
         public DbSet<CartModel> Cart { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
@@ -32,7 +34,6 @@ namespace DataAccess.DBContext
         public DbSet<ProductModel> Product { get; set; }
         public DbSet<ProductPriceModel> ProductPrice { get; set; }
         public DbSet<ReceiptModel> Receipt { get; set; }
-        public DbSet<RoleModel> Role { get; set; }
         public DbSet<SaleBillModel> SaleBill { get; set; }
         public DbSet<SubCategoryModel> SubCategory { get; set; }
         public DbSet<UserModel> User { get; set; }
@@ -45,6 +46,15 @@ namespace DataAccess.DBContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                var tableName = entityType.GetTableName();
+                if (tableName.StartsWith("AspNet"))
+                {
+                    entityType.SetTableName(tableName.Substring(6));
+                }
+            }
         }
     }
 }
