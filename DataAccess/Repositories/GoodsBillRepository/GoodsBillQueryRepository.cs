@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DataAccess.DBContext;
+using DataAccess.EntityModel;
+using DataAccess.IRepositories.IGoodsBillRepository;
+using DataAccess.Repositories.GeneralRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories.GoodsBillRepository
 {
-    public class GoodsBillQueryRepository
+    public class GoodsBillQueryRepository : GeneralQueryRepository<GoodsBillModel>, IGoodsBillQueryRepository
     {
+        public GoodsBillQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
     }
 }

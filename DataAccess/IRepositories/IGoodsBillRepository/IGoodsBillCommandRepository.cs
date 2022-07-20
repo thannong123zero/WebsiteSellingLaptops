@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess.EntityModel;
+using DataAccess.IRepositories.IGeneralRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepositories.IGoodsBillRepository
 {
-    public interface GoodsBillCommandRepository
+    public interface IGoodsBillCommandRepository : IGeneralCommandRepository<GoodsBillModel>
     {
     }
 }

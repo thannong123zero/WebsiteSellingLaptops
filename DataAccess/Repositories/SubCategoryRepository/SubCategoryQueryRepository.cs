@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.DBContext;
+using DataAccess.EntityModel;
+using DataAccess.IRepositories.ISubCategoryRepository;
+using DataAccess.Repositories.GeneralRepository;
+using System;
 
 namespace DataAccess.Repositories.SubCategoryRepository
 {
-    public class SubCategoryQueryRepository
+    public class SubCategoryQueryRepository : GeneralQueryRepository<SubCategoryModel>, ISubCategoryQueryRepository
     {
+        public SubCategoryQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
     }
 }

@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
@@ -21,6 +23,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UseCase\Crud\Product\Command\" />
+    <Folder Include="UseCase\Crud\Product\Query\" />
+    <Folder Include="UseCase\Crud\User\Command\UpdateUser\" />
+    <Folder Include="UseCase\Crud\User\Query\" />
+    <Folder Include="UseCase\Custom\AdminView\" />
   </ItemGroup>
 
 </Project>

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DataAccess.DBContext;
+using DataAccess.EntityModel;
+using DataAccess.IRepositories.IWithdrawMoneyRepository;
+using DataAccess.Repositories.GeneralRepository;
 namespace DataAccess.Repositories.WithdrawMoneyRepository
 {
-    public class WithdrawMoneyQueryRepository
+    public class WithdrawMoneyQueryRepository : GeneralQueryRepository<WithdrawMoneyModel>, IWithdrawMoneyQueryRepository
     {
+        public WithdrawMoneyQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DataAccess.IRepositories.IGeneralRepository
 {
     public interface IGeneralQueryRepository<Entity> where Entity : class 

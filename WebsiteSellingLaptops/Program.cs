@@ -2,6 +2,7 @@ using DataAccess.DBContext;
 using DataAccess.EntityModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WebsiteSellingLaptops;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -16,6 +17,11 @@ builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(c
 builder.Services.AddIdentity<UserModel, IdentityRole<Guid>>()
     .AddEntityFrameworkStores<DatabaseContext>()
     .AddDefaultTokenProviders();
+
+//builder.Services.AddMediatR();
+
+builder.Services.AddCommandRepository();
+builder.Services.AddQueyRepository();
 
 var app = builder.Build();
 
