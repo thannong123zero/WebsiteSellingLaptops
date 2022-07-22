@@ -48,15 +48,55 @@ using DataAccess.IRepositories.IWareHourseRepository;
 using DataAccess.Repositories.WareHourseRepository;
 using DataAccess.IRepositories.IWithdrawMoneyRepository;
 using DataAccess.Repositories.WithdrawMoneyRepository;
+using DataAccess.IRepositories;
+using DataAccess.Repositories;
+using System.Reflection;
+using MediatR;
+using DataAccess.DBContext;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using DataAccess.EntityModel;
+using Microsoft.AspNetCore.Identity;
+using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
+using ZWA.Infrastructure.Core;
+
 namespace WebsiteSellingLaptops
 {
     public static class SignUpService 
     {
+        public static IServiceCollection SignUpSerVice(this IServiceCollection services)
+        {
+            string projectPath = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] { @"bin\" }, StringSplitOptions.None)[0];
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath(projectPath)
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlServer(
+                    configuration["ConnectionStrings:LinkSQL"],
+                    b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
+
+            services.AddIdentity<UserModel, IdentityRole<Guid>>()
+                .AddEntityFrameworkStores<DatabaseContext>()
+                .AddDefaultTokenProviders();
+            //"AllowedAssemblyPattern": "BusinessLogic" add into appsetting.js I don't why
+            var assemblies = configuration.LoadApplicationAssemblies();
+
+            services.AddMediatR(assemblies.ToArray());
+
+            services.AddCommandRepository();
+            services.AddQueyRepository();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+           
+            return services;
+        }
         public static IServiceCollection AddCommandRepository(this IServiceCollection services)
         {
             services.AddScoped<IBillTypeCommandRepository, BillTypeCommandRepository>();
             services.AddScoped<IBuyBillCommandRepository, BuyBillCommandRepository>();
             services.AddScoped<ICartCommandRepository, CartCommandRepository>();
+            services.AddScoped<ICategoryCommandRepository, CategoryCommandRepository>();
             services.AddScoped<ICustomerCommandRepository, CustomerCommandRepository>();
             services.AddScoped<IDetailBuyBillCommandRepository, DetailBuyBillCommandRepository>();
             services.AddScoped<IDetailCartCommandRepository, DetailCartCommandRepository>();        
@@ -87,6 +127,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<IBuyBillQueryRepository,BuyBillQueryRepository>();
             services.AddScoped<ICartQueryRepository,CartQueryRepository>();
             services.AddScoped<ICategoryQueryRepository, CategoryQueryRepository>();
+            services.AddScoped<ICustomerQueryRepository, CustomerQueryRepository>();
             services.AddScoped<IDetailBuyBillQueryRepository, DetailBuyBillQueryRepository>();
             services.AddScoped<IDetailCartQueryRepository, DetailCartQueryRepository>();
             services.AddScoped<IDetailGoodsBillQueryRepository, DetailGoodsBillQueryRepository>();

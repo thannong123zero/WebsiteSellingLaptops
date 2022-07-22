@@ -22,7 +22,8 @@ namespace DataAccess.Repositories.GeneralRepository
         }
         public List<Entity> GetAll(Func<IQueryable<Entity>, IIncludableQueryable<Entity, object>> includeEntities = null, bool disableChangeTracker = true, bool withDeleteFlag = true)
         {
-            return InitQuery(includeEntities, disableChangeTracker, withDeleteFlag).ToList();
+            //return InitQuery(includeEntities, disableChangeTracker, withDeleteFlag).ToList();
+            return _dbSet.ToList();
         }
 
         public async Task<List<Entity>> GetAllAsync(Func<IQueryable<Entity>, IIncludableQueryable<Entity, object>> includeEntities = null, bool disableChangeTracker = true, bool withDeleteFlag = true)
