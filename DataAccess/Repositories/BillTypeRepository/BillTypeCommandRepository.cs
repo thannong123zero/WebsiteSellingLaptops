@@ -15,6 +15,7 @@ namespace DataAccess.Repositories.BillTypeRepository
     {
         public BillTypeCommandRepository(DbContext dbContext) : base(dbContext)
         {
+           
         }
     }
 }

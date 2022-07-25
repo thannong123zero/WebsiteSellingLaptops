@@ -30,12 +30,14 @@
 
   <ItemGroup>
     <Folder Include="UseCase\Crud\Category\Query\" />
+    <Folder Include="UseCase\Crud\Producer\" />
     <Folder Include="UseCase\Crud\Product\Command\" />
     <Folder Include="UseCase\Crud\Product\Query\" />
     <Folder Include="UseCase\Crud\SubCategory\Command\" />
     <Folder Include="UseCase\Crud\SubCategory\Query\" />
     <Folder Include="UseCase\Crud\User\Command\UpdateUser\" />
     <Folder Include="UseCase\Crud\User\Query\" />
+    <Folder Include="UseCase\Crud\Vallet\Query\" />
     <Folder Include="UseCase\Custom\AdminView\" />
   </ItemGroup>
 
