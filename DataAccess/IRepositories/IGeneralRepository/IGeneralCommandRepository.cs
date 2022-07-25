@@ -7,7 +7,7 @@ using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.IRepositories.IGeneralRepository
 {
-    public interface IGeneralCommandRepository<Entity> where Entity : class //, IIdentity<Guid>
+    public interface IGeneralCommandRepository<Entity> where Entity : class , IIdentity<Guid>
     {
         void Add(params Entity[] entity);
         void Update(params Entity[] entity);

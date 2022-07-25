@@ -16,7 +16,7 @@ using System.Linq.Dynamic.Core;
 
 namespace DataAccess.Repositories.GeneralRepository
 {
-    public class GeneralQueryRepository<Entity> : IGeneralQueryRepository<Entity> where Entity : class //, IIdentity<Guid>
+    public class GeneralQueryRepository<Entity> : IGeneralQueryRepository<Entity> where Entity : class , IIdentity<Guid>
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<Entity> _dbSet;
@@ -44,18 +44,16 @@ namespace DataAccess.Repositories.GeneralRepository
             Func<IQueryable<Entity>, IIncludableQueryable<Entity, object>> includeEntities = null,
             bool disableChangeTracker = true, bool withDeleteFlag = true)
         {
-            //return InitQuery(includeEntities, disableChangeTracker, withDeleteFlag, filters: ex => ex.Id == id)
-            //    .SingleOrDefault();
-            throw new NotImplementedException();
+            return InitQuery(includeEntities, disableChangeTracker, withDeleteFlag, filters: ex => ex.Id == id)
+                .SingleOrDefault();
         }
 
         public async Task<Entity> GetByIdAsync(Guid id,
             Func<IQueryable<Entity>, IIncludableQueryable<Entity, object>> includeEntities = null,
             bool disableChangeTracker = true, bool withDeleteFlag = true)
         {
-            //return await InitQuery(includeEntities, disableChangeTracker, withDeleteFlag, filters: ex => ex.Id == id)
-            //    .SingleOrDefaultAsync();
-            throw new NotImplementedException();
+            return await InitQuery(includeEntities, disableChangeTracker, withDeleteFlag, filters: ex => ex.Id == id)
+                .SingleOrDefaultAsync();
         }
 
         public IQueryable<Entity> GetWhereMultiple(

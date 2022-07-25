@@ -11,7 +11,7 @@ using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.Repositories.GeneralRepository
 {
-    public class GeneralCommandRepository<Entity> : IGeneralCommandRepository<Entity> where Entity : class //, IIdentity<Guid>
+    public class GeneralCommandRepository<Entity> : IGeneralCommandRepository<Entity> where Entity : class , IIdentity<Guid>
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<Entity> _dbSet;

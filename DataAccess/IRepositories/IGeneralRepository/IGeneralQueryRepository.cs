@@ -9,7 +9,7 @@ using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.IRepositories.IGeneralRepository
 {
-    public interface IGeneralQueryRepository<Entity> where Entity : class //, IIdentity<Guid>
+    public interface IGeneralQueryRepository<Entity> where Entity : class , IIdentity<Guid>
     {
         List<Entity> GetAll(Func<IQueryable<Entity>, IIncludableQueryable<Entity, object>> includeEntities = null,
           bool disableChangeTracker = true, bool withDeleteFlag = true);
