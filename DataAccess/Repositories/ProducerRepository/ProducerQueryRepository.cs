@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IProducerRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ProducerRepository
 {
     public class ProducerQueryRepository : GeneralQueryRepository<ProducerModel>, IProducerQueryRepository
     {
-        public ProducerQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ProducerQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

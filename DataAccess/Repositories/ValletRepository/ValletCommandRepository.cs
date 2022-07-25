@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IValletRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ValletRepository
 {
     public class ValletCommandRepository : GeneralCommandRepository<ValletModel>, IValletCommandRepository
     {
-        public ValletCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ValletCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

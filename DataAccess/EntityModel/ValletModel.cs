@@ -1,14 +1,15 @@
-﻿using System;
+﻿using DataAccess.CustomEntityModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.EntityModel
 {
-    public class ValletModel
+    public class ValletModel : BaseEntityModel
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public double Money { get; set; }
         public ICollection<WithdrawMoneyModel> WithdrawMoneys { get; set; }

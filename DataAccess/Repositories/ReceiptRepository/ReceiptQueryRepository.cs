@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IReceiptRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ReceiptRepository
 {
     public class ReceiptQueryRepository : GeneralQueryRepository<ReceiptModel>, IReceiptQueryRepository
     {
-        public ReceiptQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ReceiptQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

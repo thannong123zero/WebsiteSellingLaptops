@@ -7,18 +7,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.Repositories.GeneralRepository
 {
-    public class GeneralCommandRepository<Entity> : IGeneralCommandRepository<Entity> where Entity : class
+    public class GeneralCommandRepository<Entity> : IGeneralCommandRepository<Entity> where Entity : class //, IIdentity<Guid>
     {
-        private readonly DatabaseContext _databaseContext;
+        private readonly DbContext _dbContext;
         private readonly DbSet<Entity> _dbSet;
 
-        public GeneralCommandRepository(DatabaseContext databaseContext)
+        public GeneralCommandRepository(DbContext dbContext)
         {
-            _databaseContext = databaseContext;
-            _dbSet = databaseContext.Set<Entity>();
+            _dbContext = dbContext;
+            _dbSet = dbContext.Set<Entity>();
         }
 
         public void Add(params Entity[] entity)

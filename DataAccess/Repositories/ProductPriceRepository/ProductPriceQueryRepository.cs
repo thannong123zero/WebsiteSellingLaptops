@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IProductPriceRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ProductPriceRepository
 {
     public class ProductPriceQueryRepository : GeneralQueryRepository<ProductPriceModel>, IProductPriceQueryRepository
     {
-        public ProductPriceQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ProductPriceQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

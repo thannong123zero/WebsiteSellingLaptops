@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.ICategoryRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.CategoryRepository
 {
     public class CategoryQueryRepository : GeneralQueryRepository<CategoryModel>, ICategoryQueryRepository
     {
-        public CategoryQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public CategoryQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

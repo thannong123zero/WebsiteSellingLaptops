@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IMethodKindRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.MethodKindRepository
 {
     public class MethodKindQueryRepository : GeneralQueryRepository<MethodKindModel>, IMethodKindQueryRepository
     {
-        public MethodKindQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public MethodKindQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

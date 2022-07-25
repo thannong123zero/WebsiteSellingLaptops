@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IBillTypeRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.BillTypeRepository
 {
     public class BillTypeQueryRepository : GeneralQueryRepository<BillTypeModel>, IBillTypeQueryRepository
     {
-        public BillTypeQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public BillTypeQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

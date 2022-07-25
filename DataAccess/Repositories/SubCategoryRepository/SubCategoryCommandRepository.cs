@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.ISubCategoryRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.SubCategoryRepository
 {
     public class SubCategoryCommandRepository : GeneralCommandRepository<SubCategoryModel>, ISubCategoryCommandRepository
     {
-        public SubCategoryCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public SubCategoryCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

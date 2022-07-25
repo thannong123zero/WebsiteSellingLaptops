@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IDetailStockRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.DetailStockRepository
 {
     public class DetailStockCommandRepository : GeneralCommandRepository<DetailStockModel>, IDetailStockCommandRepository
     {
-        public DetailStockCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public DetailStockCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

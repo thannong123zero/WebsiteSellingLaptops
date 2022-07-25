@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IDetailBuyBillRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.DetailBuyBillRepository
 {
     public class DetailBuyBillCommandRepository : GeneralCommandRepository<DetailBuyBillModel>, IDetailBuyBillCommandRepository
     {
-        public DetailBuyBillCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public DetailBuyBillCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

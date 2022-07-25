@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IProductRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ProductRepository
 {
     public class ProductCommandRepository : GeneralCommandRepository<ProductModel>, IProductCommandRepository
     {
-        public ProductCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ProductCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

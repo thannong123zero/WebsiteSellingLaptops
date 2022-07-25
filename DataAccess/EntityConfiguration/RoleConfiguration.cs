@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole<Guid>>
+    public class RoleConfiguration : IEntityTypeConfiguration<RoleModel>
     {
-        public void Configure(EntityTypeBuilder<IdentityRole<Guid>> builder)
+        public void Configure(EntityTypeBuilder<RoleModel> builder)
         {
             builder.HasData(
                 new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Admin" },
                 new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Staff" });
         }
+
     }
 }

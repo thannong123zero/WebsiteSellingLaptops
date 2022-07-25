@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 {
-    public class AddCategoryValidation : ValidatorDescriptor<CategoryViewModel>
+    public class AddCategoryValidation : AbstractValidator<AddCategoryRequest>
     {
-        public AddCategoryValidation(IEnumerable<IValidationRule> rules) : base(rules)
+        public AddCategoryValidation()
         {
+            RuleFor(s => s.Name).NotEmpty().WithMessage("Property name is not empty");
         }
     }
 }

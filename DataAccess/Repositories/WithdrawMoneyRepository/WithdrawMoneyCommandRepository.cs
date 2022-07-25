@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IWithdrawMoneyRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.WithdrawMoneyRepository
 {
     public class WithdrawMoneyCommandRepository : GeneralCommandRepository<WithdrawMoneyModel>, IWithdrawMoneyCommandRepository
     {
-        public WithdrawMoneyCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public WithdrawMoneyCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

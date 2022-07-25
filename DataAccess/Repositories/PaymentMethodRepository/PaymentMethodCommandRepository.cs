@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IPaymentMethodRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.PaymentMethodRepository
 {
     public class PaymentMethodCommandRepository : GeneralCommandRepository<PaymentMethodModel>, IPaymentMethodCommandRepository
     {
-        public PaymentMethodCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public PaymentMethodCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

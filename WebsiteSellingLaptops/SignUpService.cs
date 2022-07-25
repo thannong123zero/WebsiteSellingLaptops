@@ -1,4 +1,5 @@
-﻿using DataAccess.IRepositories.IBuyBillRepository;
+﻿#region namespace
+using DataAccess.IRepositories.IBuyBillRepository;
 using DataAccess.Repositories.BuyBillRepository;
 using DataAccess.IRepositories.IBillTypeRepository;
 using DataAccess.Repositories.BillTypeRepository;
@@ -59,32 +60,44 @@ using DataAccess.EntityModel;
 using Microsoft.AspNetCore.Identity;
 using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
 using ZWA.Infrastructure.Core;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 
+#endregion
 namespace WebsiteSellingLaptops
 {
     public static class SignUpService 
     {
         public static IServiceCollection SignUpSerVice(this IServiceCollection services)
         {
+
             string projectPath = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] { @"bin\" }, StringSplitOptions.None)[0];
             IConfigurationRoot configuration = new ConfigurationBuilder()
             .SetBasePath(projectPath)
             .AddJsonFile("appsettings.json")
             .Build();
 
-            services.AddDbContext<DatabaseContext>(options =>
+            services.AddDbContext<DbContext,DatabaseContext>(options =>
                 options.UseSqlServer(
                     configuration["ConnectionStrings:LinkSQL"],
                     b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
 
-            services.AddIdentity<UserModel, IdentityRole<Guid>>()
+            services.AddIdentity<UserModel, RoleModel>()
                 .AddEntityFrameworkStores<DatabaseContext>()
                 .AddDefaultTokenProviders();
+
             //"AllowedAssemblyPattern": "BusinessLogic" add into appsetting.js I don't why
             var assemblies = configuration.LoadApplicationAssemblies();
 
-            services.AddMediatR(assemblies.ToArray());
 
+            services.AddFluentValidation(f =>
+            {
+                f.ImplicitlyValidateChildProperties = false;
+                f.RegisterValidatorsFromAssemblies(assemblies);
+            });
+
+            services.AddMediatR(assemblies.ToArray());
+            services.AddControllers().AddFluentValidation();
             services.AddCommandRepository();
             services.AddQueyRepository();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

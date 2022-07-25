@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IWareHourseRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.WareHourseRepository
 {
     public class WareHourseQueryRepository : GeneralQueryRepository<WareHourseModel>, IWareHourseQueryRepository
     {
-        public WareHourseQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public WareHourseQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.7" />
@@ -20,6 +20,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.19" />
     <PackageReference Include="ZWA.Infrastructure.Core" Version="1.0.6" />
   </ItemGroup>
 
@@ -29,9 +30,10 @@
 
   <ItemGroup>
     <Folder Include="UseCase\Crud\Category\Query\" />
-    <Folder Include="UseCase\Crud\SubCategory\" />
     <Folder Include="UseCase\Crud\Product\Command\" />
     <Folder Include="UseCase\Crud\Product\Query\" />
+    <Folder Include="UseCase\Crud\SubCategory\Command\" />
+    <Folder Include="UseCase\Crud\SubCategory\Query\" />
     <Folder Include="UseCase\Crud\User\Command\UpdateUser\" />
     <Folder Include="UseCase\Crud\User\Query\" />
     <Folder Include="UseCase\Custom\AdminView\" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.CustomEntityModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class DetailGoodsBillModel
+    public class DetailGoodsBillModel : BaseEntityModel
     {
-        public Guid Id { get; set; }
         public Guid GoodsBillId { get; set; }
         public Guid ProductId { get; set; }
         public int Quantity { get; set; }

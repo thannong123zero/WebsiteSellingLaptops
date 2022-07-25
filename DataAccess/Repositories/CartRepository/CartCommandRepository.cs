@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.ICartRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.CartRepository
 {
     public class CartCommandRepository : GeneralCommandRepository<CartModel>, ICartCommandRepository
     {
-        public CartCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public CartCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

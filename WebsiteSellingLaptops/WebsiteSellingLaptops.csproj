@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.1.0" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
@@ -25,6 +27,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.2" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.19" />
     <PackageReference Include="ZWA.Infrastructure.Core" Version="1.0.6" />
   </ItemGroup>
 

@@ -26,13 +26,13 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
         public async Task<CategoryViewModel> Handle(AddCategoryRequest request, CancellationToken cancellationToken)
         {
             var Id = Guid.NewGuid();
-            CategoryModel model = new CategoryModel()
-            {
-                Id = Id,
-                CategoryName = request.Name
-            };
-            _categoryCommandRepository.Add(model);
-            await _unitOfWork.SaveChangesAsync();
+            //CategoryModel model = new CategoryModel()
+            //{
+            //    Id = Id,
+            //    CategoryName = request.Name
+            //};
+            //_categoryCommandRepository.Add(model);
+            //await _unitOfWork.SaveChangesAsync();
 
             CategoryViewModel categoryViewModel = new CategoryViewModel()
             {

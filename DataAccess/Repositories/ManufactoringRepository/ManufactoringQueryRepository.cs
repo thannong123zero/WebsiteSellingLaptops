@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IManufactoringRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.ManufactoringRepository
 {
     public class ManufactoringQueryRepository : GeneralQueryRepository<ManufactoringModel>, IManufactoringQueryRepository
     {
-        public ManufactoringQueryRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public ManufactoringQueryRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

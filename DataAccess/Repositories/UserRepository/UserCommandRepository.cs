@@ -2,6 +2,7 @@
 using DataAccess.EntityModel;
 using DataAccess.IRepositories.IUserRepository;
 using DataAccess.Repositories.GeneralRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Repositories.UserRepository
 {
     public class UserCommandRepository : GeneralCommandRepository<UserModel>, IUserCommandRepository
     {
-        public UserCommandRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public UserCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }
