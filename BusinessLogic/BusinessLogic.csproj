@@ -32,7 +32,8 @@
 
   <ItemGroup>
     <Folder Include="UseCase\Crud\Category\Query\" />
-    <Folder Include="UseCase\Crud\Producer\" />
+    <Folder Include="UseCase\Crud\Producer\Command\" />
+    <Folder Include="UseCase\Crud\Producer\Query\" />
     <Folder Include="UseCase\Crud\Product\Command\" />
     <Folder Include="UseCase\Crud\Product\Query\" />
     <Folder Include="UseCase\Crud\SubCategory\Command\" />
