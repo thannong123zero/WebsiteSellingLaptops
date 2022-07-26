@@ -1,4 +1,5 @@
-﻿using BusinessLogic.ViewModel;
+﻿using AutoMapper;
+using BusinessLogic.ViewModel;
 using DataAccess.EntityModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.ICategoryRepository;
@@ -17,28 +18,26 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
     {
         private readonly ICategoryCommandRepository _categoryCommandRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public AddCategoryHandler(ICategoryCommandRepository categoryCommandRepository, IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public AddCategoryHandler(ICategoryCommandRepository categoryCommandRepository,
+            IUnitOfWork unitOfWork,
+            IMapper mapper)
         {
             _categoryCommandRepository = categoryCommandRepository;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<CategoryViewModel> Handle(AddCategoryRequest request, CancellationToken cancellationToken)
         {
-            var Id = Guid.NewGuid();
-            //CategoryModel model = new CategoryModel()
-            //{
-            //    Id = Id,
-            //    CategoryName = request.Name
-            //};
-            //_categoryCommandRepository.Add(model);
-            //await _unitOfWork.SaveChangesAsync();
-
-            CategoryViewModel categoryViewModel = new CategoryViewModel()
+            CategoryModel model = new CategoryModel()
             {
-                Id = Id,
-                Name = request.Name
+                CategoryName = request.CategoryName
             };
+            _categoryCommandRepository.Add(model);
+            await _unitOfWork.SaveChangesAsync();
+
+            var categoryViewModel = _mapper.Map<CategoryViewModel>(model);
 
             return categoryViewModel;
         }

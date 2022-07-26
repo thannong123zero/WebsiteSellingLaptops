@@ -62,6 +62,7 @@ using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
 using ZWA.Infrastructure.Core;
 using FluentValidation.AspNetCore;
 using FluentValidation;
+using AutoMapper;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -76,12 +77,13 @@ namespace WebsiteSellingLaptops
             .SetBasePath(projectPath)
             .AddJsonFile("appsettings.json")
             .Build();
-
+            // sign up database context
             services.AddDbContext<DbContext,DatabaseContext>(options =>
                 options.UseSqlServer(
                     configuration["ConnectionStrings:LinkSQL"],
                     b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
 
+            // sign up identity 
             services.AddIdentity<UserModel, RoleModel>()
                 .AddEntityFrameworkStores<DatabaseContext>()
                 .AddDefaultTokenProviders();
@@ -101,7 +103,16 @@ namespace WebsiteSellingLaptops
             services.AddCommandRepository();
             services.AddQueyRepository();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-           
+
+            // Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new SignUpAutoMapper());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             return services;
         }
         public static IServiceCollection AddCommandRepository(this IServiceCollection services)

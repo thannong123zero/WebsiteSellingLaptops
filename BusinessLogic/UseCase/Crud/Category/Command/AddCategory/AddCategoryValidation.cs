@@ -12,7 +12,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
     {
         public AddCategoryValidation()
         {
-            RuleFor(s => s.Name).NotEmpty().WithMessage("Property name is not empty");
+            RuleFor(s => s.CategoryName).NotEmpty().WithMessage("Property name is not empty");
         }
     }
 }
