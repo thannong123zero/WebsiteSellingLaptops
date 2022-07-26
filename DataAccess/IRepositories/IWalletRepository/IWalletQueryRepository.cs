@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepositories.IValletRepository
 {
-    public interface IValletCommandRepository : IGeneralCommandRepository<ValletModel>
+    public interface IWalletQueryRepository : IGeneralQueryRepository<WalletModel>
     {
     }
 }

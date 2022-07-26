@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class ValletConfiguration : IEntityTypeConfiguration<ValletModel>
+    public class WalletConfiguration : IEntityTypeConfiguration<WalletModel>
     {
-        public void Configure(EntityTypeBuilder<ValletModel> builder)
+        public void Configure(EntityTypeBuilder<WalletModel> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Money).HasDefaultValue(0);

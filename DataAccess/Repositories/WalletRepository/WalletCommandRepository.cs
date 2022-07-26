@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories.ValletRepository
 {
-    public class ValletQueryRepository : GeneralQueryRepository<ValletModel>, IValletQueryRepository
+    public class WalletCommandRepository : GeneralCommandRepository<WalletModel>, IWalletCommandRepository
     {
-        public ValletQueryRepository(DbContext dbContext) : base(dbContext)
+        public WalletCommandRepository(DbContext dbContext) : base(dbContext)
         {
         }
     }

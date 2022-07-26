@@ -18,7 +18,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(x => x.CreateAt).IsRequired();
             builder.Property(s => s.Note).IsRequired(false).HasMaxLength(225);
 
-            builder.HasOne<ValletModel>(s => s.Vallet).WithMany(g => g.WithdrawMoneys)
+            builder.HasOne<WalletModel>(s => s.Wallet).WithMany(g => g.WithdrawMoneys)
                 .HasForeignKey(s => s.ValletId);
             builder.HasOne<UserModel>(s => s.User).WithMany(g => g.WithdrawMoneys)
                 .HasForeignKey(s => s.UserId);

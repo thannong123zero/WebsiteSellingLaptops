@@ -37,7 +37,7 @@ namespace DataAccess.DBContext
         public DbSet<SaleBillModel> SaleBill { get; set; }
         public DbSet<SubCategoryModel> SubCategory { get; set; }
         public DbSet<UserModel> User { get; set; }
-        public DbSet<ValletModel> Vallet { get; set; }
+        public DbSet<WalletModel> Wallet { get; set; }
         public DbSet<WareHourseModel> WareHourse { get; set; }
         #endregion
         public DatabaseContext() : base() { }

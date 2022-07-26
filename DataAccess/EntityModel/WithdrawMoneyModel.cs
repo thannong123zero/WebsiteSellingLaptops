@@ -15,7 +15,7 @@ namespace DataAccess.EntityModel
         public double Money { get; set; }
         public string? Note { get; set; }
         public UserModel User { get; set; }
-        public ValletModel Vallet { get; set; }
+        public WalletModel Wallet { get; set; }
         public MethodKindModel MethodKind { get; set; }
 
     }

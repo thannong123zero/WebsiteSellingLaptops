@@ -14,7 +14,7 @@ namespace DataAccess.EntityModel
         public Guid SaleBillId { get; set; }
         public double CollectMoney { get; set; }
         public DateTime CreateAt { get; set; }
-        public ValletModel Vallet { get; set; }
+        public WalletModel Wallet { get; set; }
         public UserModel User { get; set; }
         public SaleBillModel SaleBill { get; set; }
 

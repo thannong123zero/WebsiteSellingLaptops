@@ -139,7 +139,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<ISaleBillCommandRepository, SaleBillCommandRepository>();
             services.AddScoped<ISubCategoryCommandRepository, SubCategoryCommandRepository>();
             services.AddScoped<IUserCommandRepository, UserCommandRepository>();
-            services.AddScoped<IValletCommandRepository, ValletCommandRepository>();
+            services.AddScoped<IWalletCommandRepository, WalletCommandRepository>();
             services.AddScoped<IWareHourseCommandRepository, WareHourseCommandRepository>();
             services.AddScoped<IWithdrawMoneyCommandRepository, WithdrawMoneyCommandRepository>();
 
@@ -169,7 +169,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<ISaleBillQueryRepository, SaleBillQueryRepository>();
             services.AddScoped<ISubCategoryQueryRepository, SubCategoryQueryRepository>();
             services.AddScoped<IUserQueryRepository, UserQueryRepository>();
-            services.AddScoped<IValletQueryRepository, ValletQueryRepository>();
+            services.AddScoped<IWalletQueryRepository, WalletQueryRepository>();
             services.AddScoped<IWareHourseQueryRepository, WareHourseQueryRepository>();
             services.AddScoped<IWithdrawMoneyQueryRepository, WithdrawMoneyQueryRepository>();
             return services;

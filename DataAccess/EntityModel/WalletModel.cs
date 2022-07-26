@@ -8,7 +8,7 @@ using ZWA.Core.Domain.Abstractions;
 
 namespace DataAccess.EntityModel
 {
-    public class ValletModel : BaseEntityModel
+    public class WalletModel : BaseEntityModel
     {
         public string Name { get; set; }
         public double Money { get; set; }

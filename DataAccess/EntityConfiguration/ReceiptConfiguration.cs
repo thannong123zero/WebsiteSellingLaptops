@@ -17,7 +17,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.CollectMoney).IsRequired();
             builder.Property(s => s.CreateAt).HasDefaultValue(DateTime.Now);
 
-            builder.HasOne(s => s.Vallet).WithMany(g => g.Receipts).HasForeignKey(s => s.ValletId);
+            builder.HasOne(s => s.Wallet).WithMany(g => g.Receipts).HasForeignKey(s => s.ValletId);
         }
     }
 }
