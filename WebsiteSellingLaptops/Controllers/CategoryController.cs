@@ -28,7 +28,7 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpPost]
         [Route("AddCategory")]
-        public async Task<IActionResult> AddCategory([FromForm] AddCategoryRequest addCategoryRequest)
+        public async Task<IActionResult> AddCategory([FromBody] AddCategoryRequest addCategoryRequest)
         {
 
            // var result = _categoryQueryRepository.GetAll();

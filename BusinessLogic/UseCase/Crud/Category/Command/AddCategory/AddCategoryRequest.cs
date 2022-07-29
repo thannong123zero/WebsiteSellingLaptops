@@ -11,6 +11,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 {
     public class AddCategoryRequest : IRequest<CategoryViewModel>
     {
-        public string CategoryName { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
     }
 }

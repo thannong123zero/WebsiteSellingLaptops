@@ -15,6 +15,7 @@ namespace DataAccess.EntityConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Money).HasDefaultValue(0);
+            builder.Property(s => s.Description).HasMaxLength(1000);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.NumberPhone).IsRequired().HasMaxLength(10);
             builder.Property(s => s.Gmail).IsRequired(false).HasMaxLength(125);
             builder.Property(s => s.Address).IsRequired().HasMaxLength(225);
+            builder.HasIndex(x => x.NumberPhone).IsUnique();
             builder.HasOne<CartModel>(s => s.Cart).WithOne(sa => sa.Customer)
                 .HasPrincipalKey<CartModel>(s => s.CustomerId);
         }

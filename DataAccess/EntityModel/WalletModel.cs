@@ -12,6 +12,7 @@ namespace DataAccess.EntityModel
     {
         public string Name { get; set; }
         public double Money { get; set; }
+        public string? Description { get; set; }
         public ICollection<WithdrawMoneyModel> WithdrawMoneys { get; set; }
         public ICollection<ReceiptModel> Receipts { get; set; }
     }

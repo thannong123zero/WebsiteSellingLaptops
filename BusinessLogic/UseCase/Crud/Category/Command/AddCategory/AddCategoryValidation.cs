@@ -1,4 +1,5 @@
-﻿using BusinessLogic.ViewModel;
+﻿using BusinessLogic.Extentions.BaseRequestValidators;
+using BusinessLogic.ViewModel;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 {
-    public class AddCategoryValidation : AbstractValidator<AddCategoryRequest>
+    public class AddCategoryValidation : BaseRequestValidator<AddCategoryRequest>
     {
         public AddCategoryValidation()
         {
-            RuleFor(s => s.CategoryName).NotEmpty().WithMessage("Property name is not empty");
+            RuleFor(s => s.Name).NotEmpty().WithMessage("Category not empty Nguyen Hoang Tai");
         }
     }
 }

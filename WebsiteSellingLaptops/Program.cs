@@ -1,6 +1,7 @@
 using DataAccess.DBContext;
 using DataAccess.EntityModel;
 using MediatR;
+using WebsiteSellingLaptops.MiddleWare;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebsiteSellingLaptops;
@@ -13,6 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 //builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(configuration["ConnectionStrings:LinkSQL"]));
 //builder.Services.AddDbContext<DatabaseContext>(options =>
@@ -36,6 +38,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseMiddleware<ExceptionHandlerMiddleware>()
+			   .UseHttpsRedirection()
+			   .UseForwardedHeaders()
+			   .UseResponseCaching()
+			   .UseAuthentication()
+			   .UseAuthorization();
+			   
 
 app.UseHttpsRedirection();
     

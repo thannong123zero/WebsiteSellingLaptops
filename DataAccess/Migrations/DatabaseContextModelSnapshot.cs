@@ -44,6 +44,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("BillType");
                 });
 
@@ -117,21 +120,28 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CategoryName")
-                        .IsRequired()
-                        .HasMaxLength(125)
-                        .HasColumnType("nvarchar(125)");
-
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(125)
+                        .HasColumnType("nvarchar(125)");
 
                     b.Property<DateTime?>("UpdateAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Category");
                 });
@@ -170,6 +180,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NumberPhone")
+                        .IsUnique();
 
                     b.ToTable("Customer");
                 });
@@ -357,7 +370,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 25, 11, 3, 46, 887, DateTimeKind.Local).AddTicks(9346));
+                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 35, DateTimeKind.Local).AddTicks(8776));
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
@@ -394,6 +407,10 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -406,6 +423,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MadeIn")
+                        .IsUnique();
 
                     b.ToTable("Manufactoring");
                 });
@@ -432,6 +452,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("MethodKind");
                 });
 
@@ -456,6 +479,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("PaymentMethod");
                 });
@@ -494,6 +520,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Producer");
                 });
 
@@ -506,7 +535,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(5039));
+                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(6107));
 
                     b.Property<string>("Descrition")
                         .IsRequired()
@@ -521,7 +550,7 @@ namespace DataAccess.Migrations
                     b.Property<Guid>("ManufactorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(125)
                         .HasColumnType("nvarchar(125)");
@@ -539,6 +568,9 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ManufactorId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("Product");
@@ -553,7 +585,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(8314));
+                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(9899));
 
                     b.Property<int>("Discount")
                         .ValueGeneratedOnAdd()
@@ -591,7 +623,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(9539));
+                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(1112));
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -630,7 +662,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 25, 11, 3, 46, 889, DateTimeKind.Local).AddTicks(5181));
+                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(8396));
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
@@ -673,10 +705,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<string>("SubCategoryName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(125)
                         .HasColumnType("nvarchar(125)");
@@ -687,6 +723,9 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("SubCategory");
                 });
@@ -758,7 +797,7 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
@@ -775,6 +814,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CitizenId")
+                        .IsUnique();
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -783,10 +825,14 @@ namespace DataAccess.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique()
+                        .HasFilter("[PhoneNumber] IS NOT NULL");
+
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.ValletModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.WalletModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -794,6 +840,10 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -812,7 +862,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vallet");
+                    b.ToTable("Wallet");
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.WareHourseModel", b =>
@@ -841,6 +891,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("WareHourse");
                 });
@@ -1035,14 +1088,14 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cd8f8737-abb0-4bb9-ad9b-208c48c3dd7f"),
-                            ConcurrencyStamp = "c6b5ba7b-bf6a-44c4-93e6-52e043712aab",
+                            Id = new Guid("bf43e098-d352-451e-9886-f3c9fa795ba1"),
+                            ConcurrencyStamp = "a0b36286-a392-4cf5-98df-30fa31fdd995",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("e8ef35b3-515b-4505-8df6-b219102f955d"),
-                            ConcurrencyStamp = "ba483816-2ac8-467a-b296-c2e33c4cafef",
+                            Id = new Guid("4b7bf378-a0cc-4a2a-8be6-4c813f18cde8"),
+                            ConcurrencyStamp = "0b9b359e-dcbb-41cd-abe0-a4ec19fb88c5",
                             Name = "Staff"
                         });
                 });
@@ -1252,7 +1305,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.EntityModel.ValletModel", "Vallet")
+                    b.HasOne("DataAccess.EntityModel.WalletModel", "Wallet")
                         .WithMany("Receipts")
                         .HasForeignKey("ValletId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1262,7 +1315,7 @@ namespace DataAccess.Migrations
 
                     b.Navigation("User");
 
-                    b.Navigation("Vallet");
+                    b.Navigation("Wallet");
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.SaleBillModel", b =>
@@ -1317,7 +1370,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.EntityModel.ValletModel", "Vallet")
+                    b.HasOne("DataAccess.EntityModel.WalletModel", "Wallet")
                         .WithMany("WithdrawMoneys")
                         .HasForeignKey("ValletId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1327,7 +1380,7 @@ namespace DataAccess.Migrations
 
                     b.Navigation("User");
 
-                    b.Navigation("Vallet");
+                    b.Navigation("Wallet");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -1478,7 +1531,7 @@ namespace DataAccess.Migrations
                     b.Navigation("WithdrawMoneys");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.ValletModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.WalletModel", b =>
                 {
                     b.Navigation("Receipts");
 

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class InitalModel : Migration
+    public partial class InitialModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,7 +46,8 @@ namespace DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -62,6 +63,7 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MadeIn = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -153,7 +155,7 @@ namespace DataAccess.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -166,19 +168,20 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vallet",
+                name: "Wallet",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Money = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vallet", x => x.Id);
+                    table.PrimaryKey("PK_Wallet", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -227,7 +230,8 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SubCategoryName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -414,9 +418,9 @@ namespace DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PaySip_Vallet_ValletId",
+                        name: "FK_PaySip_Wallet_ValletId",
                         column: x => x.ValletId,
-                        principalTable: "Vallet",
+                        principalTable: "Wallet",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -430,7 +434,7 @@ namespace DataAccess.Migrations
                     WareHourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BillTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Money = table.Column<double>(type: "float", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 25, 11, 3, 46, 887, DateTimeKind.Local).AddTicks(9346)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 29, 23, 54, 19, 35, DateTimeKind.Local).AddTicks(8776)),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -466,7 +470,7 @@ namespace DataAccess.Migrations
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TotalValue = table.Column<double>(type: "float", nullable: false),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 25, 11, 3, 46, 889, DateTimeKind.Local).AddTicks(5181)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(8396)),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -498,10 +502,10 @@ namespace DataAccess.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SubCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ManufactorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProductName = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(125)", maxLength: 125, nullable: false),
                     Descrition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(5039)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(6107)),
                     WarrantyPeriod = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -532,7 +536,7 @@ namespace DataAccess.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SaleBillId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CollectMoney = table.Column<double>(type: "float", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(9539)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(1112)),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -551,9 +555,9 @@ namespace DataAccess.Migrations
                         principalTable: "Users",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Receipt_Vallet_ValletId",
+                        name: "FK_Receipt_Wallet_ValletId",
                         column: x => x.ValletId,
-                        principalTable: "Vallet",
+                        principalTable: "Wallet",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -710,7 +714,7 @@ namespace DataAccess.Migrations
                     Price = table.Column<double>(type: "float", nullable: false),
                     Discount = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 25, 11, 3, 46, 888, DateTimeKind.Local).AddTicks(8314)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(9899)),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -727,12 +731,18 @@ namespace DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { new Guid("cd8f8737-abb0-4bb9-ad9b-208c48c3dd7f"), "c6b5ba7b-bf6a-44c4-93e6-52e043712aab", "RoleModel", "Admin", null });
+                values: new object[] { new Guid("4b7bf378-a0cc-4a2a-8be6-4c813f18cde8"), "0b9b359e-dcbb-41cd-abe0-a4ec19fb88c5", "RoleModel", "Staff", null });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
-                values: new object[] { new Guid("e8ef35b3-515b-4505-8df6-b219102f955d"), "ba483816-2ac8-467a-b296-c2e33c4cafef", "RoleModel", "Staff", null });
+                values: new object[] { new Guid("bf43e098-d352-451e-9886-f3c9fa795ba1"), "a0b36286-a392-4cf5-98df-30fa31fdd995", "RoleModel", "Admin", null });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BillType_Name",
+                table: "BillType",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_BuyBill_EmployeeId",
@@ -748,6 +758,18 @@ namespace DataAccess.Migrations
                 name: "IX_BuyBill_ProducerId",
                 table: "BuyBill",
                 column: "ProducerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Category_Name",
+                table: "Category",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customer_NumberPhone",
+                table: "Customer",
+                column: "NumberPhone",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_DetailBuyBill_BuyBillId",
@@ -815,6 +837,24 @@ namespace DataAccess.Migrations
                 column: "WareHourseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Manufactoring_MadeIn",
+                table: "Manufactoring",
+                column: "MadeIn",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MethodKind_Name",
+                table: "MethodKind",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentMethod_Name",
+                table: "PaymentMethod",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PaySip_MethodKindId",
                 table: "PaySip",
                 column: "MethodKindId");
@@ -830,9 +870,21 @@ namespace DataAccess.Migrations
                 column: "ValletId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Producer_Name",
+                table: "Producer",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Product_ManufactorId",
                 table: "Product",
                 column: "ManufactorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_Name",
+                table: "Product",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_SubCategoryId",
@@ -894,6 +946,12 @@ namespace DataAccess.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SubCategory_Name",
+                table: "SubCategory",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserClaims_UserId",
                 table: "UserClaims",
                 column: "UserId");
@@ -914,11 +972,30 @@ namespace DataAccess.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Users_CitizenId",
+                table: "Users",
+                column: "CitizenId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_PhoneNumber",
+                table: "Users",
+                column: "PhoneNumber",
+                unique: true,
+                filter: "[PhoneNumber] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "Users",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WareHourse_Name",
+                table: "WareHourse",
+                column: "Name",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -978,7 +1055,7 @@ namespace DataAccess.Migrations
                 name: "SaleBill");
 
             migrationBuilder.DropTable(
-                name: "Vallet");
+                name: "Wallet");
 
             migrationBuilder.DropTable(
                 name: "Roles");

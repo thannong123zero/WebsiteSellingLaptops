@@ -16,6 +16,7 @@ namespace DataAccess.EntityConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
             builder.Property(s => s.Address).IsRequired().HasMaxLength(225);
+            builder.HasIndex(s => s.Name).IsUnique();
         }
     }
 }

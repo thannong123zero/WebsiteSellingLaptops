@@ -32,7 +32,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
         {
             CategoryModel model = new CategoryModel()
             {
-                CategoryName = request.CategoryName
+                Name = request.Name
             };
             _categoryCommandRepository.Add(model);
             await _unitOfWork.SaveChangesAsync();

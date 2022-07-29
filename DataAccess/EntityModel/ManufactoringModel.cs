@@ -10,6 +10,7 @@ namespace DataAccess.EntityModel
     public class ManufactoringModel : BaseEntityModel
     {
         public string MadeIn { get; set; }
+        public string? Description { get; set; }
         public ICollection<ProductModel> Products { get; set; }
     }
 }

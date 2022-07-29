@@ -63,6 +63,10 @@ using ZWA.Infrastructure.Core;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using AutoMapper;
+using BusinessLogic.Extentions.BaseRequestValidators;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -71,12 +75,16 @@ namespace WebsiteSellingLaptops
     {
         public static IServiceCollection SignUpSerVice(this IServiceCollection services)
         {
-
+            
+            #region sign up database context
             string projectPath = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] { @"bin\" }, StringSplitOptions.None)[0];
             IConfigurationRoot configuration = new ConfigurationBuilder()
             .SetBasePath(projectPath)
             .AddJsonFile("appsettings.json")
             .Build();
+            //"AllowedAssemblyPattern": "BusinessLogic" add into appsetting.js I don't why
+            var assemblies = configuration.LoadApplicationAssemblies();
+
             // sign up database context
             services.AddDbContext<DbContext,DatabaseContext>(options =>
                 options.UseSqlServer(
@@ -87,24 +95,56 @@ namespace WebsiteSellingLaptops
             services.AddIdentity<UserModel, RoleModel>()
                 .AddEntityFrameworkStores<DatabaseContext>()
                 .AddDefaultTokenProviders();
+            #endregion            
+            #region Add middle ware manager fluent validation
+            //services.AddFluentValidation(f =>
+            //{
+            //    f.ImplicitlyValidateChildProperties = false;
+            //    f.RegisterValidatorsFromAssemblies(assemblies);
+            //});
 
-            //"AllowedAssemblyPattern": "BusinessLogic" add into appsetting.js I don't why
-            var assemblies = configuration.LoadApplicationAssemblies();
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestValidationHandler<,>));
+            var mvcBuilder = services.AddRouting(ex => ex.LowercaseUrls = true)
+                                    .AddControllers(ex =>
+                                    {
+                                        var notJsonOutputFormatters = ex.OutputFormatters.Where(formatter => !(formatter is SystemTextJsonOutputFormatter)).ToArray();
+                                        foreach (var formatter in notJsonOutputFormatters)
+                                        {
+                                            ex.OutputFormatters.Remove(formatter);
+                                        }
+                                    }).AddJsonOptions(ex =>
+                                    {
+                                        ex.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                                        ex.JsonSerializerOptions.AllowTrailingCommas = false;
+                                        ex.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Disallow;
+                                    });
 
 
-            services.AddFluentValidation(f =>
+            services.AddResponseCaching()
+                    .AddHttpContextAccessor()
+                    .AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+            mvcBuilder.AddFluentValidation(fv =>
             {
-                f.ImplicitlyValidateChildProperties = false;
-                f.RegisterValidatorsFromAssemblies(assemblies);
+                fv.ImplicitlyValidateChildProperties = false;
+                //fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                fv.RegisterValidatorsFromAssemblies(assemblies);
             });
 
+            mvcBuilder.ConfigureApiBehaviorOptions(opts =>
+            {
+                opts.SuppressModelStateInvalidFilter = true;
+            });
+            #endregion
+            #region sign up service
             services.AddMediatR(assemblies.ToArray());
+
             services.AddControllers().AddFluentValidation();
             services.AddCommandRepository();
             services.AddQueyRepository();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            // Auto Mapper Configurations
+            #endregion
+            #region Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new SignUpAutoMapper());
@@ -112,7 +152,7 @@ namespace WebsiteSellingLaptops
 
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-
+            #endregion
             return services;
         }
         public static IServiceCollection AddCommandRepository(this IServiceCollection services)

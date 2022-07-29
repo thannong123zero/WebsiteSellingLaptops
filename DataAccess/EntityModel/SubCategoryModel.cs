@@ -10,7 +10,8 @@ namespace DataAccess.EntityModel
     public class SubCategoryModel : BaseEntityModel
     { 
         public Guid CategoryId { get; set; }
-        public string SubCategoryName { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
         public CategoryModel Category { get; set; }
         public ICollection<ProductModel> Products { get; set; }
     }

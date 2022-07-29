@@ -18,6 +18,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.NumberPhone).HasMaxLength(10);
             builder.Property(s => s.Address).HasMaxLength(225);
             builder.Property(s => s.IsDelete).HasDefaultValue(false);
+            builder.HasIndex(s => s.Name).IsUnique();
 
         }
     }

@@ -11,7 +11,7 @@ namespace DataAccess.EntityModel
     {
         public Guid SubCategoryId { get; set; }
         public Guid ManufactorId { get; set; } 
-        public string ProductName { get; set; }
+        public string Name { get; set; }
         public string Descrition { get; set; }
         public string? Img { get; set; }
         public DateTime CreateAt { get; set; }
