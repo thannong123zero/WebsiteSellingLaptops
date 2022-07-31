@@ -27,7 +27,6 @@ namespace DataAccess.DBContext
         public DbSet<BillTypeModel> BillType { get; set; }
         public DbSet<GoodsBillModel> GoodsBill { get; set; }
         public DbSet<ManufactoringModel> Manufactoring { get; set; }
-        public DbSet<MethodKindModel> MethodKind { get; set; }
         public DbSet<PaymentMethodModel> PaymentMethod { get; set; }
         public DbSet<WithdrawMoneyModel> PaySip { get; set; }
         public DbSet<ProducerModel> Producer { get; set; }

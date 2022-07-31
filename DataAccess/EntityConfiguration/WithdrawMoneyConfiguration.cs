@@ -22,7 +22,7 @@ namespace DataAccess.EntityConfiguration
                 .HasForeignKey(s => s.ValletId);
             builder.HasOne<UserModel>(s => s.User).WithMany(g => g.WithdrawMoneys)
                 .HasForeignKey(s => s.UserId);
-            builder.HasOne<MethodKindModel>(s => s.MethodKind).WithMany(g => g.WithdrawMoneys)
+            builder.HasOne<PaymentMethodModel>(s => s.PaymentMethod).WithMany(g => g.WithdrawMoneys)
                 .HasForeignKey(s => s.MethodKindId);
         }
     }

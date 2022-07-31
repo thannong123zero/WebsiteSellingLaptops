@@ -31,16 +31,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCase\Crud\Category\Query\" />
-    <Folder Include="UseCase\Crud\Producer\Command\" />
-    <Folder Include="UseCase\Crud\Producer\Query\" />
-    <Folder Include="UseCase\Crud\Product\Command\" />
-    <Folder Include="UseCase\Crud\Product\Query\" />
-    <Folder Include="UseCase\Crud\SubCategory\Command\" />
-    <Folder Include="UseCase\Crud\SubCategory\Query\" />
-    <Folder Include="UseCase\Crud\User\Command\UpdateUser\" />
-    <Folder Include="UseCase\Crud\User\Query\" />
-    <Folder Include="UseCase\Crud\Vallet\Query\" />
+    <Folder Include="UseCase\Crud\BuyBill\Command\" />
+    <Folder Include="UseCase\Crud\BuyBill\Query\" />
+    <Folder Include="UseCase\Crud\CartDetail\Command\" />
+    <Folder Include="UseCase\Crud\CartDetail\Query\" />
+    <Folder Include="UseCase\Crud\Cart\Command\" />
+    <Folder Include="UseCase\Crud\Cart\Query\" />
+    <Folder Include="UseCase\Crud\Customer\Command\" />
+    <Folder Include="UseCase\Crud\Customer\Query\" />
+    <Folder Include="UseCase\Crud\DetailBuyBill\Command\" />
+    <Folder Include="UseCase\Crud\DetailBuyBill\Query\" />
+    <Folder Include="UseCase\Crud\DetailGoodsBill\Command\" />
+    <Folder Include="UseCase\Crud\DetailGoodsBill\Query\" />
+    <Folder Include="UseCase\Crud\DetailSaleBill\Command\" />
+    <Folder Include="UseCase\Crud\DetailSaleBill\Query\" />
+    <Folder Include="UseCase\Crud\DetailStock\Command\" />
+    <Folder Include="UseCase\Crud\DetailStock\Query\" />
+    <Folder Include="UseCase\Crud\GoodsBill\Command\" />
+    <Folder Include="UseCase\Crud\GoodsBill\Query\" />
+    <Folder Include="UseCase\Crud\Manufactoring\Command\" />
+    <Folder Include="UseCase\Crud\Manufactoring\Query\" />
+    <Folder Include="UseCase\Crud\ProductPrice\Command\" />
+    <Folder Include="UseCase\Crud\ProductPrice\Query\" />
+    <Folder Include="UseCase\Crud\Receipt\Command\" />
+    <Folder Include="UseCase\Crud\Receipt\Query\" />
+    <Folder Include="UseCase\Crud\SaleBill\Command\" />
+    <Folder Include="UseCase\Crud\SaleBill\Query\" />
+    <Folder Include="UseCase\Crud\WareHourse\Command\" />
+    <Folder Include="UseCase\Crud\WareHourse\Query\" />
     <Folder Include="UseCase\Custom\AdminView\" />
   </ItemGroup>
 

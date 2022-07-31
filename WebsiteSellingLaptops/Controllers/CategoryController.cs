@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
+using BusinessLogic.UseCase.Crud.Category.Query.GetCategories;
 using DataAccess.EntityModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.ICategoryRepository;
@@ -37,6 +38,14 @@ namespace WebsiteSellingLaptops.Controllers
 
 
             return  StatusCode(200,result);
+        }
+
+        [HttpGet]
+        [Route("GetCategories")]
+        public async Task<IActionResult> GetCategories([FromQuery] GetCategoriesRequest getCategoriesRequest)
+        {
+            var result = await _mediator.Send(getCategoriesRequest);
+            return StatusCode(200, result);
         }
     }
 }

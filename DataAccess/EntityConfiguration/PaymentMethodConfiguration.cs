@@ -16,6 +16,9 @@ namespace DataAccess.EntityConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
             builder.HasIndex(s => s.Name).IsUnique();
+            builder.HasData(
+                new PaymentMethodModel {  Name = "Tiền mặt" },
+                new PaymentMethodModel {  Name = "Chuyển khoản" });
         }
     }
 }

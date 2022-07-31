@@ -25,8 +25,6 @@ using DataAccess.IRepositories.IGoodsBillRepository;
 using DataAccess.Repositories.GoodsBillRepository;
 using DataAccess.IRepositories.IManufactoringRepository;
 using DataAccess.Repositories.ManufactoringRepository;
-using DataAccess.IRepositories.IMethodKindRepository;
-using DataAccess.Repositories.MethodKindRepository;
 using DataAccess.IRepositories.IPaymentMethodRepository;
 using DataAccess.Repositories.PaymentMethodRepository;
 using DataAccess.IRepositories.IProducerRepository;
@@ -43,8 +41,6 @@ using DataAccess.IRepositories.ISubCategoryRepository;
 using DataAccess.Repositories.SubCategoryRepository;
 using DataAccess.IRepositories.IUserRepository;
 using DataAccess.Repositories.UserRepository;
-using DataAccess.IRepositories.IValletRepository;
-using DataAccess.Repositories.ValletRepository;
 using DataAccess.IRepositories.IWareHourseRepository;
 using DataAccess.Repositories.WareHourseRepository;
 using DataAccess.IRepositories.IWithdrawMoneyRepository;
@@ -67,6 +63,8 @@ using BusinessLogic.Extentions.BaseRequestValidators;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using DataAccess.Repositories.WalletRepository;
+using DataAccess.IRepositories.IWalletRepository;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -170,7 +168,6 @@ namespace WebsiteSellingLaptops
             //services.AddScoped<IGeneralCommandRepository,GeneralCommandRepository<Entity>();
             services.AddScoped<IGoodsBillCommandRepository, GoodsBillCommandRepository>();
             services.AddScoped<IManufactoringCommandRepository, ManufactoringCommandRepository>();
-            services.AddScoped<IMethodKindCommandRepository, MethodKindCommandRepository>();
             services.AddScoped<IPaymentMethodCommandRepository, PaymentMethodCommandRepository>();
             services.AddScoped<IProducerCommandRepository, ProducerCommandRepository>();
             services.AddScoped<IProductCommandRepository, ProductCommandRepository>();
@@ -200,7 +197,6 @@ namespace WebsiteSellingLaptops
             //services.AddScoped<IGeneralQueryRepository,GeneralQueryRepository<Entity>();
             services.AddScoped<IGoodsBillQueryRepository, GoodsBillQueryRepository>();
             services.AddScoped<IManufactoringQueryRepository, ManufactoringQueryRepository>();
-            services.AddScoped<IMethodKindQueryRepository, MethodKindQueryRepository>();
             services.AddScoped<IPaymentMethodQueryRepository, PaymentMethodQueryRepository>();
             services.AddScoped<IProducerQueryRepository, ProducerQueryRepository>();
             services.AddScoped<IProductQueryRepository, ProductQueryRepository>();

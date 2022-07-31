@@ -16,6 +16,10 @@ namespace DataAccess.EntityConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Name).IsRequired().HasMaxLength(50);
             builder.HasIndex(s => s.Name).IsUnique();
+            builder.HasData(
+                new BillTypeModel { Name = "Hóa đơn nhập" },
+                new BillTypeModel { Name = "Hóa đơn xuất" }
+            );
 
         }
     }

@@ -16,7 +16,7 @@ namespace DataAccess.EntityModel
         public string? Note { get; set; }
         public UserModel User { get; set; }
         public WalletModel Wallet { get; set; }
-        public MethodKindModel MethodKind { get; set; }
+        public PaymentMethodModel PaymentMethod { get; set; }
 
     }
 }
