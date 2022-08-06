@@ -39,7 +39,7 @@ namespace DataAccess.Repositories.GeneralRepository
                 var property = typeof(Entity).GetProperty("IsDelete");
                 if (property != null)
                 {
-                    property.SetValue(e, true);
+                    property.SetValue(e, false);
                 }
             }
             PerformDbOperation(_dbSet.Update, entity);
@@ -52,7 +52,7 @@ namespace DataAccess.Repositories.GeneralRepository
                 var property = typeof(Entity).GetProperty("IsDelete");
                 if (property != null)
                 {
-                    property.SetValue(e, false);
+                    property.SetValue(e, true);
                 }
             }
             PerformDbOperation(_dbSet.Update, entity);

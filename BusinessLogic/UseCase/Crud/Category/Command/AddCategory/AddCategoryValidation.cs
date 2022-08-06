@@ -13,7 +13,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
     {
         public AddCategoryValidation()
         {
-            RuleFor(s => s.Name).NotEmpty().WithMessage("Category not empty Nguyen Hoang Tai");
+            RuleFor(s => s.Name).NotEmpty().WithMessage("Category Name not empty Nguyen Hoang Tai");
         }
     }
 }

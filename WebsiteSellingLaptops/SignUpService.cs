@@ -65,6 +65,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using DataAccess.Repositories.WalletRepository;
 using DataAccess.IRepositories.IWalletRepository;
+using WebsiteSellingLaptops.CustomController;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -141,6 +142,7 @@ namespace WebsiteSellingLaptops
             services.AddCommandRepository();
             services.AddQueyRepository();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(ICommonComponents<>), typeof(CommonComponents<>));
             #endregion
             #region Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

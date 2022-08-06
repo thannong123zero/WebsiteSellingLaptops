@@ -30,10 +30,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 
         public async Task<CategoryViewModel> Handle(AddCategoryRequest request, CancellationToken cancellationToken)
         {
-            CategoryModel model = new CategoryModel()
-            {
-                Name = request.Name
-            };
+            CategoryModel model = _mapper.Map<CategoryModel>(request);
             _categoryCommandRepository.Add(model);
             await _unitOfWork.SaveChangesAsync();
 

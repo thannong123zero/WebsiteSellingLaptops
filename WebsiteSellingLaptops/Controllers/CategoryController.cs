@@ -1,51 +1,55 @@
 ﻿using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
+using BusinessLogic.UseCase.Crud.Category.Command.DeleteCategory;
+using BusinessLogic.UseCase.Crud.Category.Command.RestoreCategory;
+using BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory;
 using BusinessLogic.UseCase.Crud.Category.Query.GetCategories;
-using DataAccess.EntityModel;
-using DataAccess.IRepositories;
-using DataAccess.IRepositories.ICategoryRepository;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Categories")]
-    public class CategoryController : Controller
+    public class CategoryController : BaseApi<CategoryController>
     {
-        private readonly ICategoryCommandRepository _categoryCommandRepository;
-        private readonly ICategoryQueryRepository _categoryQueryRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMediator _mediator;
-        public CategoryController(IMediator mediator,
-            ICategoryCommandRepository categoryCommandRepository,
-            ICategoryQueryRepository categoryQueryRepository,
-            IUnitOfWork unitOfWork)
+
+        public CategoryController(ICommonComponents<CategoryController> commonComponents) : base(commonComponents)
         {
-            _categoryCommandRepository = categoryCommandRepository;
-            _categoryQueryRepository = categoryQueryRepository;
-            _unitOfWork = unitOfWork;
-            _mediator = mediator;
         }
 
 
         [HttpPost]
         [Route("AddCategory")]
-        public async Task<IActionResult> AddCategory([FromBody] AddCategoryRequest addCategoryRequest)
+        public async Task<IResponse> AddCategory([FromBody] AddCategoryRequest addCategoryRequest)
         {
+            return Success(data: await _commonComponents.Router.Send(addCategoryRequest));
+        }
 
-           // var result = _categoryQueryRepository.GetAll();
+        [HttpPut]
+        [Route("UpdateCategory")]
+        public async Task<IResponse> UpdateCategory([FromBody] UpdateCategoryRequest updateCategoryRequest)
+        {
+            return Success(data: await _commonComponents.Router.Send(updateCategoryRequest));
+        }
 
-            var result = await _mediator.Send(addCategoryRequest);
-
-
-            return  StatusCode(200,result);
+        [HttpDelete]
+        [Route("DeleteCategory")]
+        public async Task<IResponse> DeleteCategory([FromQuery] DeleteCategoryRequest deleteCategoryRequest)
+        {
+            return Success(data: await _commonComponents.Router.Send(deleteCategoryRequest));
+        }
+        [HttpPatch]
+        [Route("RestoreCategory")]
+        public async Task<IResponse> RestoreCategory([FromQuery] RestoreCategoryRequest restoreCategoryRequest)
+        {
+            return Success(data: await _commonComponents.Router.Send(restoreCategoryRequest));
         }
 
         [HttpGet]
         [Route("GetCategories")]
-        public async Task<IActionResult> GetCategories([FromQuery] GetCategoriesRequest getCategoriesRequest)
+        public async Task<IResponse> GetCategories([FromQuery] GetCategoriesRequest getCategoriesRequest)
         {
-            var result = await _mediator.Send(getCategoriesRequest);
-            return StatusCode(200, result);
+            return Success(data: await _commonComponents.Router.Send(getCategoriesRequest));
         }
+
     }
 }

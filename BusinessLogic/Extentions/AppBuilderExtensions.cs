@@ -24,5 +24,52 @@ namespace BusinessLogic.Extentions
             return exceptionHandler;
         }
 
+        #region Feature Toggles
+
+        //public static IApplicationBuilder UseFeatureToggles(this IApplicationBuilder applicationBuilder, Action<IApplicationBuilder, IFeatureProvider> setupAction)
+        //{
+        //    var featureProvider = applicationBuilder.ApplicationServices.GetRequiredService<IFeatureProvider>();
+
+        //    setupAction?.Invoke(applicationBuilder, featureProvider);
+
+        //    return applicationBuilder;
+        //}
+
+        //public static IApplicationBuilder UseOpenAPI(this IApplicationBuilder applicationBuilder, Action<SwaggerUIOptions> setupAction = null)
+        //{
+        //    applicationBuilder.UseSwagger();
+
+        //    var apiVersionDescriptionsProvider = applicationBuilder.ApplicationServices.GetService<IApiVersionDescriptionProvider>();
+
+        //    applicationBuilder.UseSwaggerUI(opts =>
+        //    {
+        //        opts.DisplayRequestDuration();
+        //        opts.RoutePrefix = string.Empty;
+
+        //        setupAction?.Invoke(opts);
+
+        //        foreach (var description in apiVersionDescriptionsProvider.ApiVersionDescriptions)
+        //        {
+        //            opts.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+        //                                 description.GroupName.ToUpperInvariant());
+        //        }
+        //    });
+
+        //    return applicationBuilder;
+        //}
+
+        //public static IApplicationBuilder ExecuteDataSeeding(this IApplicationBuilder applicationBuilder, IServiceScope serviceScope)
+        //{
+        //    var seedingContexts = serviceScope.ServiceProvider.GetServices<ISeedingContext>();
+
+        //    foreach (var seedingContext in seedingContexts)
+        //    {
+        //        seedingContext.Seed();
+        //    }
+
+        //    return applicationBuilder;
+        //}
+
+        #endregion
     }
 }
