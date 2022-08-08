@@ -11,6 +11,6 @@ namespace DataAccess.EntityModel
     {
         
         public string Name { get; set; }
-        public ICollection<GoodsBillModel> GoodsBills { get; set; }
+        public ICollection<GoodsBillModel>? GoodsBills { get; set; }
     }
 }

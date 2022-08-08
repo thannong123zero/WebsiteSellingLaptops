@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.UseCase.Crud.User.Command.UpdateUser
+namespace BusinessLogic.UseCase.Crud.User.Command.RestoreUser
 {
-    public class UpdateUserRequest : IRequest<string>
+    public class RestoreUserRequest : IRequest<string>
     {
     }
 }

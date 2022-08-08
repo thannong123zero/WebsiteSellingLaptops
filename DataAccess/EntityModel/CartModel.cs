@@ -12,7 +12,7 @@ namespace DataAccess.EntityModel
         public Guid CustomerId { get; set; }
         public double TotalMoney { get; set; }
         public CustomerModel Customer { get; set; }
-        public ICollection<DetailCartModel> DetailCarts { get; set; }
+        public ICollection<DetailCartModel>? DetailCarts { get; set; }
 
     }
 }

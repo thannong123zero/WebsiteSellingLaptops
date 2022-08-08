@@ -12,6 +12,6 @@ namespace DataAccess.EntityModel
         public string Name { get; set; }
         public string Address { get; set; }
         public string NumberPhone { get; set; }
-        public ICollection<BuyBillModel> BuyBills { get; set; }
+        public ICollection<BuyBillModel>? BuyBills { get; set; }
     }
 }

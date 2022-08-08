@@ -48,6 +48,22 @@ namespace DataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("BillType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("13f975af-a915-464d-991b-790e3666191d"),
+                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 630, DateTimeKind.Local).AddTicks(9178),
+                            IsDelete = false,
+                            Name = "Hóa đơn nhập"
+                        },
+                        new
+                        {
+                            Id = new Guid("2a35b178-f392-4f8f-b969-68f03ad40463"),
+                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 630, DateTimeKind.Local).AddTicks(9187),
+                            IsDelete = false,
+                            Name = "Hóa đơn xuất"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.BuyBillModel", b =>
@@ -370,7 +386,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 35, DateTimeKind.Local).AddTicks(8776));
+                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(1896));
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
@@ -430,34 +446,6 @@ namespace DataAccess.Migrations
                     b.ToTable("Manufactoring");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.MethodKindModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("MethodKind");
-                });
-
             modelBuilder.Entity("DataAccess.EntityModel.PaymentMethodModel", b =>
                 {
                     b.Property<Guid>("Id")
@@ -484,6 +472,22 @@ namespace DataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("PaymentMethod");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("6828363a-cb6d-4569-b30c-c26832c5cb35"),
+                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(7059),
+                            IsDelete = false,
+                            Name = "Tiền mặt"
+                        },
+                        new
+                        {
+                            Id = new Guid("8ecfc853-ed2f-4439-866d-380d006041a2"),
+                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(7064),
+                            IsDelete = false,
+                            Name = "Chuyển khoản"
+                        });
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.ProducerModel", b =>
@@ -535,7 +539,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(6107));
+                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(8376));
 
                     b.Property<string>("Descrition")
                         .IsRequired()
@@ -585,7 +589,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 36, DateTimeKind.Local).AddTicks(9899));
+                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(2025));
 
                     b.Property<int>("Discount")
                         .ValueGeneratedOnAdd()
@@ -623,7 +627,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(1112));
+                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(3284));
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -662,7 +666,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 7, 29, 23, 54, 19, 37, DateTimeKind.Local).AddTicks(8396));
+                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(9685));
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
@@ -1088,14 +1092,14 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bf43e098-d352-451e-9886-f3c9fa795ba1"),
-                            ConcurrencyStamp = "a0b36286-a392-4cf5-98df-30fa31fdd995",
+                            Id = new Guid("6815785c-70c1-415a-a465-7b7dbd664c60"),
+                            ConcurrencyStamp = "91b05bfe-af7b-49ec-8038-3f06af5e1f05",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("4b7bf378-a0cc-4a2a-8be6-4c813f18cde8"),
-                            ConcurrencyStamp = "0b9b359e-dcbb-41cd-abe0-a4ec19fb88c5",
+                            Id = new Guid("4269a895-52cd-4ce7-8e97-6ef43bbac48f"),
+                            ConcurrencyStamp = "a69d8c2e-b700-47e2-ac51-0e97d2a82aec",
                             Name = "Staff"
                         });
                 });
@@ -1358,7 +1362,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.EntityModel.WithdrawMoneyModel", b =>
                 {
-                    b.HasOne("DataAccess.EntityModel.MethodKindModel", "MethodKind")
+                    b.HasOne("DataAccess.EntityModel.PaymentMethodModel", "PaymentMethod")
                         .WithMany("WithdrawMoneys")
                         .HasForeignKey("MethodKindId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1376,7 +1380,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("MethodKind");
+                    b.Navigation("PaymentMethod");
 
                     b.Navigation("User");
 
@@ -1472,16 +1476,13 @@ namespace DataAccess.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.MethodKindModel", b =>
-                {
-                    b.Navigation("WithdrawMoneys");
-                });
-
             modelBuilder.Entity("DataAccess.EntityModel.PaymentMethodModel", b =>
                 {
                     b.Navigation("BuyBills");
 
                     b.Navigation("SaleBills");
+
+                    b.Navigation("WithdrawMoneys");
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.ProducerModel", b =>

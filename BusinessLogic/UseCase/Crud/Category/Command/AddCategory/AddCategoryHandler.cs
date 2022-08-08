@@ -34,9 +34,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
             _categoryCommandRepository.Add(model);
             await _unitOfWork.SaveChangesAsync();
 
-            var categoryViewModel = _mapper.Map<CategoryViewModel>(model);
-
-            return categoryViewModel;
+            return _mapper.Map<CategoryViewModel>(model);
         }
     }
 }

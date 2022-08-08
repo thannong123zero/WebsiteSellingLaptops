@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.EntityModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace BusinessLogic.ViewModel
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
+        public ICollection<SubCategoryModel>? SubCategories { get; set; }
     }
 }

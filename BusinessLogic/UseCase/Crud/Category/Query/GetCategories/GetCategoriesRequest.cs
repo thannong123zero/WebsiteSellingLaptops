@@ -10,6 +10,5 @@ namespace BusinessLogic.UseCase.Crud.Category.Query.GetCategories
 {
     public class GetCategoriesRequest : IRequest<List<CategoryViewModel>>
     {
-
     }
 }

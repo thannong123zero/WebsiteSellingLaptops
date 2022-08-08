@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.UseCase.Crud.SubCategory.Command.DeleteSubCategory
+namespace BusinessLogic.UseCase.Crud.SubCategory.Command.RestoreSubCategory
 {
-    public class DeleteSubCategoryRequest : IRequest<IActionResult>
+    public class RestoreSubCategoryRequest : IRequest<IActionResult>
     {
         public Guid Id { get; set; }
     }

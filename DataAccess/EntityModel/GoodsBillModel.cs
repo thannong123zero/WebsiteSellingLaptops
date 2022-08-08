@@ -17,6 +17,6 @@ namespace DataAccess.EntityModel
         public UserModel User { get; set; }
         public BillTypeModel BillType { get; set; }
         public WareHourseModel WareHourse { get; set; }
-        public ICollection<DetailGoodsBillModel> DetailGoodsBills { get; set; }
+        public ICollection<DetailGoodsBillModel>? DetailGoodsBills { get; set; }
     }
 }

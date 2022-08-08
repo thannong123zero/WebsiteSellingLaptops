@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using BusinessLogic.ViewModel;
-using DataAccess.EntityModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.ISubCategoryRepository;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ZWA.Core.Domain.Exceptions;
 
-namespace BusinessLogic.UseCase.Crud.SubCategory.Command.UpdateSubCategory
+namespace BusinessLogic.UseCase.Crud.SubCategory.Command.RestoreSubCategory
 {
-    public class UpdateSubCategoryHandler : IRequestHandler<UpdateSubCategoryRequest, SubCategoryViewModel>
+    public class RestoreSubCategoryHandler : IRequestHandler<RestoreSubCategoryRequest, IActionResult>
     {
         private readonly ISubCategoryCommandRepository _subCategoryCommandRepository;
         private readonly ISubCategoryQueryRepository _subCategoryQueryRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public UpdateSubCategoryHandler(ISubCategoryCommandRepository subCategoryCommandRepository,
+        public RestoreSubCategoryHandler(ISubCategoryCommandRepository subCategoryCommandRepository,
             ISubCategoryQueryRepository subCategoryQueryRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper)
@@ -29,20 +28,18 @@ namespace BusinessLogic.UseCase.Crud.SubCategory.Command.UpdateSubCategory
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<SubCategoryViewModel> Handle(UpdateSubCategoryRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Handle(RestoreSubCategoryRequest request, CancellationToken cancellationToken)
         {
-            var SubCategoryUpdate = await _subCategoryQueryRepository.GetByIdAsync(request.Id);
-
-            if (SubCategoryUpdate == null)
+            var CategoryToDelete = _subCategoryQueryRepository.Find(p => p.Id == request.Id, withDeleteFlag: false).FirstOrDefault();
+            if (CategoryToDelete == null)
             {
                 throw new DomainException("SubCategory Id does not exist!");
             }
-            _mapper.Map(request, SubCategoryUpdate);
-            SubCategoryUpdate.UpdateAt = DateTime.Now;
-            _subCategoryCommandRepository.Update(SubCategoryUpdate);
+            _subCategoryCommandRepository.RestoreDelete(CategoryToDelete);
+
             await _unitOfWork.SaveChangesAsync();
 
-            return _mapper.Map<SubCategoryViewModel>(SubCategoryUpdate);
+            return new StatusCodeResult(200);
         }
     }
 }

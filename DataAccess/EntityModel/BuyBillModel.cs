@@ -16,6 +16,6 @@ namespace DataAccess.EntityModel
         public ProducerModel Producer { get; set; }
         public UserModel User { get; set; }
         public PaymentMethodModel PaymentMethod { get; set; }
-        public ICollection<DetailBuyBillModel> DetailBuyBills { get; set; }
+        public ICollection<DetailBuyBillModel>? DetailBuyBills { get; set; }
     }
 }

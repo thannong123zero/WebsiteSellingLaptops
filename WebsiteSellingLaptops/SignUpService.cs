@@ -143,6 +143,9 @@ namespace WebsiteSellingLaptops
             services.AddQueyRepository();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(ICommonComponents<>), typeof(CommonComponents<>));
+
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             #endregion
             #region Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

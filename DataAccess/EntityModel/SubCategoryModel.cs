@@ -13,6 +13,6 @@ namespace DataAccess.EntityModel
         public string Name { get; set; }
         public string? Description { get; set; }
         public CategoryModel Category { get; set; }
-        public ICollection<ProductModel> Products { get; set; }
+        public ICollection<ProductModel>? Products { get; set; }
     }
 }

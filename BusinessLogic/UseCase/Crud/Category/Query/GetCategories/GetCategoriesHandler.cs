@@ -15,7 +15,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Query.GetCategories
         private readonly ICategoryQueryRepository _categoryQueryRepository;
         private readonly IMapper _mapper;
         public GetCategoriesHandler(ICategoryQueryRepository categoryQueryRepository,
-IMapper mapper)
+        IMapper mapper)
         {
             _categoryQueryRepository = categoryQueryRepository;
             _mapper = mapper;

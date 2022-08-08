@@ -17,6 +17,6 @@ namespace DataAccess.EntityModel
         public PaymentMethodModel PaymentMethod { get; set; }
         public ReceiptModel Receipt { get; set; }
         public CustomerModel Customer { get; set; }
-        public ICollection<DetailSaleBillModel> DetailSaleBills { get; set; }
+        public ICollection<DetailSaleBillModel>? DetailSaleBills { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using BusinessLogic.UseCase.Crud.Category.Command.DeleteCategory;
 using BusinessLogic.UseCase.Crud.Category.Command.RestoreCategory;
 using BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory;
 using BusinessLogic.UseCase.Crud.Category.Query.GetCategories;
+using BusinessLogic.UseCase.Crud.Category.Query.GetCategory;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
@@ -49,6 +50,12 @@ namespace WebsiteSellingLaptops.Controllers
         public async Task<IResponse> GetCategories([FromQuery] GetCategoriesRequest getCategoriesRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getCategoriesRequest));
+        }
+        [HttpGet]
+        [Route("GetCategory")]
+        public async Task<IResponse> GetCategory([FromQuery] GetCategoryRequest getCategoryRequest)
+        {
+            return Success(data: await _commonComponents.Router.Send(getCategoryRequest));
         }
 
     }

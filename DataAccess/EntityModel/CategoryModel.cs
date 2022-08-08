@@ -11,6 +11,6 @@ namespace DataAccess.EntityModel
     {
         public string Name { get; set; }
         public string? Description { get; set; }
-        public ICollection<SubCategoryModel> SubCategories { get; set; }
+        public ICollection<SubCategoryModel>? SubCategories { get; set; }
     }
 }

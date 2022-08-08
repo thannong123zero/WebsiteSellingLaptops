@@ -11,6 +11,6 @@ namespace DataAccess.EntityModel
     {
         public string MadeIn { get; set; }
         public string? Description { get; set; }
-        public ICollection<ProductModel> Products { get; set; }
+        public ICollection<ProductModel>? Products { get; set; }
     }
 }

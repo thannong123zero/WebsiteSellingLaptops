@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic.ViewModel;
+using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.SubCategory.Query.GetSubCategory
 {
-    internal class GetSubCategoryRequest
+    public class GetSubCategoryRequest : IRequest<SubCategoryViewModel>
     {
+        public Guid Id { get; set; }
     }
 }
