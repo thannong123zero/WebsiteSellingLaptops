@@ -31,8 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCase\Crud\BuyBill\Command\" />
-    <Folder Include="UseCase\Crud\BuyBill\Query\" />
+    <Folder Include="UseCase\Crud\BuyBill\Command\AddBuyBill\" />
+    <Folder Include="UseCase\Crud\BuyBill\Query\GetBuyBill\" />
     <Folder Include="UseCase\Crud\CartDetail\Command\" />
     <Folder Include="UseCase\Crud\CartDetail\Query\" />
     <Folder Include="UseCase\Crud\Cart\Command\" />
