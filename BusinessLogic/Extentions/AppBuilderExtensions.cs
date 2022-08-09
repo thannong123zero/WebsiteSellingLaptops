@@ -1,10 +1,5 @@
 ﻿using System;
-
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.Extensions.DependencyInjection;
-
 
 namespace BusinessLogic.Extentions
 {
@@ -23,7 +18,6 @@ namespace BusinessLogic.Extentions
 
             return exceptionHandler;
         }
-
         #region Feature Toggles
 
         //public static IApplicationBuilder UseFeatureToggles(this IApplicationBuilder applicationBuilder, Action<IApplicationBuilder, IFeatureProvider> setupAction)

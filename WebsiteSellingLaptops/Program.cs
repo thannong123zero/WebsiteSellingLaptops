@@ -16,19 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-//builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(configuration["ConnectionStrings:LinkSQL"]));
-//builder.Services.AddDbContext<DatabaseContext>(options =>
-//    options.UseSqlServer(
-//        configuration["ConnectionStrings:LinkSQL"],
-//        b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
-
-//builder.Services.AddIdentity<UserModel, IdentityRole<Guid>>()
-//    .AddEntityFrameworkStores<DatabaseContext>()
-//    .AddDefaultTokenProviders();
-
 
 builder.Services.SignUpSerVice();
-
 
 var app = builder.Build();
 

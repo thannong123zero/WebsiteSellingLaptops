@@ -1,10 +1,9 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
-using BusinessLogic.Extentions;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using BusinessLogic.Extentions;
 
 namespace WebsiteSellingLaptops.MiddleWare
 {
@@ -51,7 +50,7 @@ namespace WebsiteSellingLaptops.MiddleWare
                 {
                     Status = (int)HttpStatusCode.InternalServerError,
                     Title = Constants.RequestHandling.Messages.UnhandledExceptionTitle,
-                    Detail = exception.ToString()
+                    Detail = exception.Message.ToString()
                 };
             }
 

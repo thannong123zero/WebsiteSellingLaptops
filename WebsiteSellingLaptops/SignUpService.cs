@@ -66,6 +66,9 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using DataAccess.Repositories.WalletRepository;
 using DataAccess.IRepositories.IWalletRepository;
 using WebsiteSellingLaptops.CustomController;
+using BusinessLogic.Extentions;
+using Microsoft.AspNetCore.Mvc;
+using ZWA.Core.Domain.Exceptions;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -96,12 +99,6 @@ namespace WebsiteSellingLaptops
                 .AddDefaultTokenProviders();
             #endregion            
             #region Add middle ware manager fluent validation
-            //services.AddFluentValidation(f =>
-            //{
-            //    f.ImplicitlyValidateChildProperties = false;
-            //    f.RegisterValidatorsFromAssemblies(assemblies);
-            //});
-
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestValidationHandler<,>));
             var mvcBuilder = services.AddRouting(ex => ex.LowercaseUrls = true)
                                     .AddControllers(ex =>
@@ -134,6 +131,8 @@ namespace WebsiteSellingLaptops
             {
                 opts.SuppressModelStateInvalidFilter = true;
             });
+            // sign up this code to handler erro goble
+            services.AddScoped(typeof(IExceptionHandler<FluentValidation.ValidationException, ProblemDetails>), typeof(ValidationExceptionHandler));
             #endregion
             #region sign up service
             services.AddMediatR(assemblies.ToArray());
@@ -156,8 +155,10 @@ namespace WebsiteSellingLaptops
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             #endregion
+            
             return services;
         }
+
         public static IServiceCollection AddCommandRepository(this IServiceCollection services)
         {
             services.AddScoped<IBillTypeCommandRepository, BillTypeCommandRepository>();
