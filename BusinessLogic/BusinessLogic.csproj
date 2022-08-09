@@ -33,10 +33,10 @@
   <ItemGroup>
     <Folder Include="UseCase\Crud\BuyBill\Command\AddBuyBill\" />
     <Folder Include="UseCase\Crud\BuyBill\Query\GetBuyBill\" />
-    <Folder Include="UseCase\Crud\CartDetail\Command\" />
-    <Folder Include="UseCase\Crud\CartDetail\Query\" />
-    <Folder Include="UseCase\Crud\Cart\Command\" />
-    <Folder Include="UseCase\Crud\Cart\Query\" />
+    <Folder Include="UseCase\Crud\CartDetail\Command\AddCartDetail\" />
+    <Folder Include="UseCase\Crud\CartDetail\Query\GetCartDetails\" />
+    <Folder Include="UseCase\Crud\Cart\Command\AddCart\" />
+    <Folder Include="UseCase\Crud\Cart\Query\GetCart\" />
     <Folder Include="UseCase\Crud\Customer\Command\" />
     <Folder Include="UseCase\Crud\Customer\Query\" />
     <Folder Include="UseCase\Crud\DetailBuyBill\Command\" />
