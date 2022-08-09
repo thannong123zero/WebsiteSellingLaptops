@@ -131,7 +131,7 @@ namespace WebsiteSellingLaptops
             {
                 opts.SuppressModelStateInvalidFilter = true;
             });
-            // sign up this code to handler erro goble
+            // sign up this code to handler erro Global
             services.AddScoped(typeof(IExceptionHandler<FluentValidation.ValidationException, ProblemDetails>), typeof(ValidationExceptionHandler));
             #endregion
             #region sign up service
