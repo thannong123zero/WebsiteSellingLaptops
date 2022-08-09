@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.User.Command.DeteleUser
 {
-    internal class DeleteUserHandler
+    public class DeleteUserHandler
     {
     }
 }
