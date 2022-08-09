@@ -16,14 +16,7 @@ namespace BusinessLogic.UseCase.Crud.User.Command.AddUser
         }
         public async Task<UserViewModel> Handle(AddUserRequest request, CancellationToken cancellationToken)
         {
-            UserViewModel userViewModel = new UserViewModel
-            {
-                Id = Guid.NewGuid(),
-                FullName = request.FullName,
-                BirthDay = request.BirthDay,
-                Gender = request.Gender,
-                Address = request.Address
-            };
+
             return null;
         }
     }

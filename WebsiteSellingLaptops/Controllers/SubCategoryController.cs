@@ -9,6 +9,7 @@ using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
+    [Route("api/SubCategories")]
     public class SubCategoryController : BaseApi<SubCategoryController>
     {
 
