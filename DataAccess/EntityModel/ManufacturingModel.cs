@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class ManufactoringModel : BaseEntityModel
+    public class ManufacturingModel : BaseEntityModel
     {
         public string MadeIn { get; set; }
         public string? Description { get; set; }

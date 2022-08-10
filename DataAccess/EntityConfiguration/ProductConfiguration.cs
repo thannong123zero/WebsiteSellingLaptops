@@ -18,7 +18,7 @@ namespace DataAccess.EntityConfiguration
             builder.Property(s => s.Descrition).IsRequired();
             builder.Property(s => s.CreateAt).HasDefaultValue(DateTime.Now);
             builder.HasOne(s => s.SubCategory).WithMany(g => g.Products).HasForeignKey(s => s.SubCategoryId);
-            builder.HasOne(s => s.Manufactoring).WithMany(g => g.Products).HasForeignKey(s => s.ManufactorId);
+            builder.HasOne(s => s.Manufacturing).WithMany(g => g.Products).HasForeignKey(s => s.ManufactorId);
             builder.HasIndex(s => s.Name).IsUnique();
         }
     }

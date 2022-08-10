@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.IRepositories.IManufactoringRepository
+namespace DataAccess.IRepositories.IManufacturingRepository
 {
-    public interface IManufactoringCommandRepository : IGeneralCommandRepository<ManufactoringModel>
+    public interface IManufacturingCommandRepository : IGeneralCommandRepository<ManufacturingModel>
     {
     }
 }

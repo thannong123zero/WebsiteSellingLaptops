@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220808075207_InitialModel")]
+    [Migration("20220810081252_InitialModel")]
     partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -54,15 +54,15 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("13f975af-a915-464d-991b-790e3666191d"),
-                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 630, DateTimeKind.Local).AddTicks(9178),
+                            Id = new Guid("1bdf254c-5633-4d7b-8bce-5bfb126db00a"),
+                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5273),
                             IsDelete = false,
                             Name = "Hóa đơn nhập"
                         },
                         new
                         {
-                            Id = new Guid("2a35b178-f392-4f8f-b969-68f03ad40463"),
-                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 630, DateTimeKind.Local).AddTicks(9187),
+                            Id = new Guid("bc6474df-106d-4e32-9ca3-f62fa23616f7"),
+                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5284),
                             IsDelete = false,
                             Name = "Hóa đơn xuất"
                         });
@@ -388,7 +388,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(1896));
+                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(1249));
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
@@ -416,7 +416,7 @@ namespace DataAccess.Migrations
                     b.ToTable("GoodsBill");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.ManufactoringModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.ManufacturingModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -445,7 +445,7 @@ namespace DataAccess.Migrations
                     b.HasIndex("MadeIn")
                         .IsUnique();
 
-                    b.ToTable("Manufactoring");
+                    b.ToTable("Manufacturing");
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.PaymentMethodModel", b =>
@@ -478,15 +478,15 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6828363a-cb6d-4569-b30c-c26832c5cb35"),
-                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(7059),
+                            Id = new Guid("3f6002bc-6e78-4fea-aceb-e17167a6c1a6"),
+                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7100),
                             IsDelete = false,
                             Name = "Tiền mặt"
                         },
                         new
                         {
-                            Id = new Guid("8ecfc853-ed2f-4439-866d-380d006041a2"),
-                            CreateAt = new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(7064),
+                            Id = new Guid("75b44747-dde7-4879-8445-11d95c303179"),
+                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7105),
                             IsDelete = false,
                             Name = "Chuyển khoản"
                         });
@@ -541,7 +541,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 633, DateTimeKind.Local).AddTicks(8376));
+                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(8488));
 
                     b.Property<string>("Descrition")
                         .IsRequired()
@@ -591,7 +591,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(2025));
+                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(2396));
 
                     b.Property<int>("Discount")
                         .ValueGeneratedOnAdd()
@@ -629,7 +629,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(3284));
+                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(3771));
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -668,7 +668,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 8, 14, 52, 7, 634, DateTimeKind.Local).AddTicks(9685));
+                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 165, DateTimeKind.Local).AddTicks(1024));
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
@@ -1094,14 +1094,14 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6815785c-70c1-415a-a465-7b7dbd664c60"),
-                            ConcurrencyStamp = "91b05bfe-af7b-49ec-8038-3f06af5e1f05",
+                            Id = new Guid("90ec2b4b-9810-4ab6-adbb-66ba1b076e8f"),
+                            ConcurrencyStamp = "3e33b4d0-68ae-4746-969d-df532638f9bd",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("4269a895-52cd-4ce7-8e97-6ef43bbac48f"),
-                            ConcurrencyStamp = "a69d8c2e-b700-47e2-ac51-0e97d2a82aec",
+                            Id = new Guid("652a07ff-dd5a-42de-9d0b-7fc535ca4380"),
+                            ConcurrencyStamp = "3dffcf56-2d00-438b-960d-91e9ed3591b4",
                             Name = "Staff"
                         });
                 });
@@ -1269,7 +1269,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.EntityModel.ProductModel", b =>
                 {
-                    b.HasOne("DataAccess.EntityModel.ManufactoringModel", "Manufactoring")
+                    b.HasOne("DataAccess.EntityModel.ManufacturingModel", "Manufacturing")
                         .WithMany("Products")
                         .HasForeignKey("ManufactorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1281,7 +1281,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Manufactoring");
+                    b.Navigation("Manufacturing");
 
                     b.Navigation("SubCategory");
                 });
@@ -1473,7 +1473,7 @@ namespace DataAccess.Migrations
                     b.Navigation("DetailGoodsBills");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.ManufactoringModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.ManufacturingModel", b =>
                 {
                     b.Navigation("Products");
                 });

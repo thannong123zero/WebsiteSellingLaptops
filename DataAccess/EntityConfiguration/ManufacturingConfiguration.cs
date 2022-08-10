@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class ManufactoringConfiguration : IEntityTypeConfiguration<ManufactoringModel>
+    public class ManufacturingConfiguration : IEntityTypeConfiguration<ManufacturingModel>
     {
-        public void Configure(EntityTypeBuilder<ManufactoringModel> builder)
+        public void Configure(EntityTypeBuilder<ManufacturingModel> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(s => s.MadeIn).IsRequired().HasMaxLength(125);

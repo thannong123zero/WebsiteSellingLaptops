@@ -23,8 +23,6 @@ using DataAccess.IRepositories.IGeneralRepository;
 using DataAccess.Repositories.GeneralRepository;
 using DataAccess.IRepositories.IGoodsBillRepository;
 using DataAccess.Repositories.GoodsBillRepository;
-using DataAccess.IRepositories.IManufactoringRepository;
-using DataAccess.Repositories.ManufactoringRepository;
 using DataAccess.IRepositories.IPaymentMethodRepository;
 using DataAccess.Repositories.PaymentMethodRepository;
 using DataAccess.IRepositories.IProducerRepository;
@@ -69,6 +67,8 @@ using WebsiteSellingLaptops.CustomController;
 using BusinessLogic.Extentions;
 using Microsoft.AspNetCore.Mvc;
 using ZWA.Core.Domain.Exceptions;
+using DataAccess.IRepositories.IManufacturingRepository;
+using DataAccess.Repositories.ManufacturingRepository;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -173,7 +173,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<IDetailStockCommandRepository, DetailStockCommandRepository>();
             //services.AddScoped<IGeneralCommandRepository,GeneralCommandRepository<Entity>();
             services.AddScoped<IGoodsBillCommandRepository, GoodsBillCommandRepository>();
-            services.AddScoped<IManufactoringCommandRepository, ManufactoringCommandRepository>();
+            services.AddScoped<IManufacturingCommandRepository, ManufacturingCommandRepository>();
             services.AddScoped<IPaymentMethodCommandRepository, PaymentMethodCommandRepository>();
             services.AddScoped<IProducerCommandRepository, ProducerCommandRepository>();
             services.AddScoped<IProductCommandRepository, ProductCommandRepository>();
@@ -202,7 +202,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<IDetailStockQueryRepository, DetailStockQueryRepository>();
             //services.AddScoped<IGeneralQueryRepository,GeneralQueryRepository<Entity>();
             services.AddScoped<IGoodsBillQueryRepository, GoodsBillQueryRepository>();
-            services.AddScoped<IManufactoringQueryRepository, ManufactoringQueryRepository>();
+            services.AddScoped<IManufacturingQueryRepository, ManufacturingQueryRepository>();
             services.AddScoped<IPaymentMethodQueryRepository, PaymentMethodQueryRepository>();
             services.AddScoped<IProducerQueryRepository, ProducerQueryRepository>();
             services.AddScoped<IProductQueryRepository, ProductQueryRepository>();

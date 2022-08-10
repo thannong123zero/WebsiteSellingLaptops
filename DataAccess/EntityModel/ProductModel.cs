@@ -15,7 +15,7 @@ namespace DataAccess.EntityModel
         public string Descrition { get; set; }
         public string? Img { get; set; }
         public DateTime? WarrantyPeriod { get; set; }
-        public ManufactoringModel Manufactoring { get; set; }
+        public ManufacturingModel Manufacturing { get; set; }
         public SubCategoryModel SubCategory { get; set; }
         public ICollection<DetailCartModel>? DetailCarts { get; set; }
         public ICollection<DetailStockModel>? DetailStocks { get; set; }
