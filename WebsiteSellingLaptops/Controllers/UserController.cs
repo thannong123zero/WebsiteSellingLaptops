@@ -2,6 +2,7 @@
 using BusinessLogic.UseCase.Crud.User.Command.DeteleUser;
 using BusinessLogic.UseCase.Crud.User.Command.RestoreUser;
 using BusinessLogic.UseCase.Crud.User.Command.UpdateUser;
+using BusinessLogic.UseCase.Crud.User.Query.GetUser;
 using BusinessLogic.UseCase.Crud.User.Query.GetUsers;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -16,37 +17,43 @@ namespace WebsiteSellingLaptops.Controllers
 
     [HttpPost]
     [Route("AddUser")]
-    public async Task<IResponse> AddCategory([FromBody] AddUserRequest addUserRequest)
+    public async Task<IResponse> AddUser([FromBody] AddUserRequest addUserRequest)
     {
         return Success(data: await _commonComponents.Router.Send(addUserRequest));
     }
 
     [HttpPut]
     [Route("UpdateUser")]
-    public async Task<IResponse> UpdateCategory([FromBody] UpdateUserRequest updateUserRequest)
+    public async Task<IResponse> UpdateUser([FromBody] UpdateUserRequest updateUserRequest)
     {
         return Success(data: await _commonComponents.Router.Send(updateUserRequest));
     }
 
     [HttpDelete]
     [Route("DeleteUser")]
-    public async Task<IResponse> DeleteCategory([FromQuery] DeleteUserRequest deleteUserRequest)
+    public async Task<IResponse> DeleteUser([FromQuery] DeleteUserRequest deleteUserRequest)
     {
         return Success(data: await _commonComponents.Router.Send(deleteUserRequest));
     }
     [HttpPatch]
     [Route("RestoreUser")]
-    public async Task<IResponse> RestoreCategory([FromQuery] RestoreUserRequest restoreUserRequest)
+    public async Task<IResponse> RestoreUser([FromQuery] RestoreUserRequest restoreUserRequest)
     {
         return Success(data: await _commonComponents.Router.Send(restoreUserRequest));
     }
 
     [HttpGet]
     [Route("GetUsers")]
-    public async Task<IResponse> GetCategories([FromQuery] GetUsersRequest getUsersRequest)
+    public async Task<IResponse> GetUsers([FromQuery] GetUsersRequest getUsersRequest)
     {
         return Success(data: await _commonComponents.Router.Send(getUsersRequest));
     }
 
-}
+    [HttpGet]
+    [Route("GetUser")]
+    public async Task<IResponse> GetUser([FromQuery] GetUserRequest getUserRequest)
+    {
+        return Success(data: await _commonComponents.Router.Send(getUserRequest));
+    }
+    }
 }

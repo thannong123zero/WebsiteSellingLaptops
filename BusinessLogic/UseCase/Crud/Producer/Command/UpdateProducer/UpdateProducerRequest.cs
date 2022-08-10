@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.Producer.Command.UpdateProducer
 {
-    internal class UpdateProducerRequest
+    public class UpdateProducerRequest
     {
     }
 }

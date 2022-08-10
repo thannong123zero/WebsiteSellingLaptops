@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.Producer.Command.AddProducer
 {
-    internal class AddProductValidation
+    public class AddProductValidation
     {
     }
 }
