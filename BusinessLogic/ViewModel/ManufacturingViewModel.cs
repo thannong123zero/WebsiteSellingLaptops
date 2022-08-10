@@ -8,6 +8,7 @@ namespace BusinessLogic.ViewModel
 {
     public class ManufacturingViewModel
     {
+        public int Id { get; set; }
         public string MadeIn { get; set; }
         public string? Description { get; set; }
     }

@@ -8,6 +8,7 @@ namespace BusinessLogic.ViewModel
 {
     public class SubCategoryViewModel
     {
+        public int Id { get; set; }
         public Guid CategoryId { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
