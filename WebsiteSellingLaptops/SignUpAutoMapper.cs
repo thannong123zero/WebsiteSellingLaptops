@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
 using BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory;
+using BusinessLogic.UseCase.Crud.Manufacturing.Command.AddManufacturing;
+using BusinessLogic.UseCase.Crud.Manufacturing.Command.UpdateManufacturing;
 using BusinessLogic.UseCase.Crud.Producer.Command.AddProducer;
 using BusinessLogic.UseCase.Crud.Producer.Command.UpdateProducer;
 using BusinessLogic.UseCase.Crud.SubCategory.Command.AddSubCategory;
@@ -35,6 +37,11 @@ namespace WebsiteSellingLaptops
             CreateMap<ProducerModel, ProducerViewModel>();
             CreateMap<AddProducerRequest, ProducerModel>();
             CreateMap<UpdateProducerRequest, ProducerModel>();
+
+            //manufacturing
+            CreateMap<ManufacturingModel, ManufacturingViewModel>();
+            CreateMap<AddManufacturingRequest, ManufacturingModel>();
+            CreateMap<UpdateManufacturingRequest, ManufacturingModel>();
 
         }
     }

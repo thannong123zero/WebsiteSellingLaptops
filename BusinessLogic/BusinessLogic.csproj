@@ -45,7 +45,6 @@
     <Folder Include="UseCase\Crud\DetailStock\Query\GetDetailStock\" />
     <Folder Include="UseCase\Crud\GoodsBill\Command\AddGoodsBill\" />
     <Folder Include="UseCase\Crud\GoodsBill\Query\GetGoodsBill\" />
-    <Folder Include="UseCase\Crud\Manufacturing\Query\GetManufacturing\" />
     <Folder Include="UseCase\Crud\ProductPrice\Command\AddProductPrice\" />
     <Folder Include="UseCase\Crud\ProductPrice\Query\GetProductPrice\" />
     <Folder Include="UseCase\Crud\Receipt\Command\AddReceipt\" />

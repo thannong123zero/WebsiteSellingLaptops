@@ -13,9 +13,7 @@ namespace WebsiteSellingLaptops.Controllers
     public class CategoryController : BaseApi<CategoryController>
     {
 
-        public CategoryController(ICommonComponents<CategoryController> commonComponents) : base(commonComponents)
-        {
-        }
+        public CategoryController(ICommonComponents<CategoryController> commonComponents) : base(commonComponents){}
 
 
         [HttpPost]

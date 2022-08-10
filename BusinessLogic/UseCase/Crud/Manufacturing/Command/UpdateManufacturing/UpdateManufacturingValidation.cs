@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.UseCase.Crud.Manufacturing.Command.AddManufacturing
+namespace BusinessLogic.UseCase.Crud.Manufacturing.Command.UpdateManufacturing
 {
-    public class AddManufacturingValidation : BaseRequestValidator<AddManufacturingRequest>
+    internal class UpdateManufacturingValidation : BaseRequestValidator<UpdateManufacturingRequest>
     {
-        public AddManufacturingValidation()
+        public UpdateManufacturingValidation()
         {
             RuleFor(s => s.MadeIn).NotEmpty().WithMessage("MadeIn is not empty!");
         }

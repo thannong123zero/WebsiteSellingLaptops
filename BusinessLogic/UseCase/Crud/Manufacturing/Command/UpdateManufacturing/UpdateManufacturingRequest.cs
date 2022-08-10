@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.UseCase.Crud.Manufacturing.Command.AddManufacturing
+namespace BusinessLogic.UseCase.Crud.Manufacturing.Command.UpdateManufacturing
 {
-    public class AddManufacturingRequest : IRequest<ManufacturingViewModel>
+    public class UpdateManufacturingRequest : IRequest<ManufacturingViewModel>
     {
+        public Guid Id { get; set; }
         public string MadeIn { get; set; }
         public string? Description { get; set; }
     }
