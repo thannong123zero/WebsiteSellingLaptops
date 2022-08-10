@@ -32,8 +32,8 @@ namespace BusinessLogic.UseCase.Crud.SubCategory.Command.AddSubCategory
         }
         public async Task<SubCategoryViewModel> Handle(AddSubCategoryRequest request, CancellationToken cancellationToken)
         {
-            var Category = _categoryQueryRepository.Find(c => c.Id == request.CategoryId).FirstOrDefault();
-            if (Category == null)
+            var category = _categoryQueryRepository.Find(c => c.Id == request.CategoryId).FirstOrDefault();
+            if (category == null)
             {
                 throw new DomainException("Category Id does not exist!");
             }

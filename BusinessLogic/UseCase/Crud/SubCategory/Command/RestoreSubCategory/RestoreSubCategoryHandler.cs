@@ -30,12 +30,12 @@ namespace BusinessLogic.UseCase.Crud.SubCategory.Command.RestoreSubCategory
         }
         public async Task<IActionResult> Handle(RestoreSubCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryToDelete = _subCategoryQueryRepository.Find(p => p.Id == request.Id, withDeleteFlag: false).FirstOrDefault();
-            if (CategoryToDelete == null)
+            var categoryToDelete = _subCategoryQueryRepository.Find(p => p.Id == request.Id, withDeleteFlag: false).FirstOrDefault();
+            if (categoryToDelete == null)
             {
                 throw new DomainException("SubCategory Id does not exist!");
             }
-            _subCategoryCommandRepository.RestoreDelete(CategoryToDelete);
+            _subCategoryCommandRepository.RestoreDelete(categoryToDelete);
 
             await _unitOfWork.SaveChangesAsync();
 

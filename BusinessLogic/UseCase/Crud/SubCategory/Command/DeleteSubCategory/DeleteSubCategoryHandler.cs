@@ -30,12 +30,12 @@ namespace BusinessLogic.UseCase.Crud.SubCategory.Command.DeleteSubCategory
         }
         public async Task<IActionResult> Handle(DeleteSubCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryToDelete = _subCategoryQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
-            if (CategoryToDelete == null)
+            var categoryToDelete = _subCategoryQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
+            if (categoryToDelete == null)
             {
                 throw new DomainException("SubCategory Id does not exist!");
             }
-            _subCategoryCommandRepository.SoftDelete(CategoryToDelete);
+            _subCategoryCommandRepository.SoftDelete(categoryToDelete);
 
             await _unitOfWork.SaveChangesAsync();
 

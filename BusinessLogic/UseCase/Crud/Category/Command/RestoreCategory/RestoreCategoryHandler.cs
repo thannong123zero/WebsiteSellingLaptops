@@ -31,12 +31,12 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.RestoreCategory
 
         public async Task<IActionResult> Handle(RestoreCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryToDelete = _categoryQueryRepository.Find(p => p.Id == request.Id,withDeleteFlag: false).FirstOrDefault();
-            if (CategoryToDelete == null)
+            var categoryToDelete = _categoryQueryRepository.Find(p => p.Id == request.Id,withDeleteFlag: false).FirstOrDefault();
+            if (categoryToDelete == null)
             {
                 throw new DomainException("Category Id does not exist!");
             }
-            _categoryCommandRepository.RestoreDelete(CategoryToDelete);
+            _categoryCommandRepository.RestoreDelete(categoryToDelete);
 
             await _unitOfWork.SaveChangesAsync();
 

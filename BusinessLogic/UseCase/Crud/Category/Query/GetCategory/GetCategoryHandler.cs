@@ -25,12 +25,12 @@ namespace BusinessLogic.UseCase.Crud.Category.Query.GetCategory
         }
         public async Task<CategoryViewModel> Handle(GetCategoryRequest request, CancellationToken cancellationToken)
         {
-            CategoryModel Category =  _categoryQueryRepository.Find(c => c.Id == request.Id, s => s.Include(x => x.SubCategories)).FirstOrDefault();
-            if (Category == null)
+            CategoryModel category =  _categoryQueryRepository.Find(c => c.Id == request.Id, s => s.Include(x => x.SubCategories)).FirstOrDefault();
+            if (category == null)
             {
-                throw new DomainException("Category Id does not exist!");
+                throw new DomainException("CategoryId does not exist!");
             }
-            return _mapper.Map<CategoryViewModel>(Category);
+            return _mapper.Map<CategoryViewModel>(category);
         }
     }
 }

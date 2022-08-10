@@ -3,17 +3,22 @@ using DataAccess.IRepositories;
 using DataAccess.IRepositories.IProducerRepository;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ZWA.Core.Domain.Exceptions;
 
-namespace BusinessLogic.UseCase.Crud.Producer.Command.DeleteProducer
+namespace BusinessLogic.UseCase.Crud.Producer.Command.RestoreProducer
 {
-    public class DeleteProducerHandler : IRequestHandler<DeleteProducerRequest, IActionResult>
+    public class RestoreProducerHandler : IRequestHandler<RestoreProducerRequest, IActionResult>
     {
         public readonly IProducerQueryRepository _producerQueryRepository;
         public readonly IProducerCommandRepository _producerCommandRepository;
         public readonly IUnitOfWork _unitOfWork;
         public readonly IMapper _mapper;
-        public DeleteProducerHandler(IProducerQueryRepository producerQueryRepository,
+        public RestoreProducerHandler(IProducerQueryRepository producerQueryRepository,
             IProducerCommandRepository producerCommandRepository,
             IUnitOfWork unitOfWork,
             IMapper mapper)
@@ -23,14 +28,15 @@ namespace BusinessLogic.UseCase.Crud.Producer.Command.DeleteProducer
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<IActionResult> Handle(DeleteProducerRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Handle(RestoreProducerRequest request, CancellationToken cancellationToken)
         {
             var producer = _producerQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
             if (producer == null)
             {
-                throw new DomainException("Category Id does not exist!");
+                throw new DomainException("Producer Id does not exist!");
             }
-            _producerCommandRepository.SoftDelete(producer);
+
+            _producerCommandRepository.RestoreDelete(producer);
 
             await _unitOfWork.SaveChangesAsync();
 

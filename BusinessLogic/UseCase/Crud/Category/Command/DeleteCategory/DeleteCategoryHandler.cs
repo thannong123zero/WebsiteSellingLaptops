@@ -30,12 +30,12 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.DeleteCategory
         }
         public async Task<IActionResult> Handle(DeleteCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryToDelete = _categoryQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
-            if (CategoryToDelete == null)
+            var categoryToDelete = _categoryQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
+            if (categoryToDelete == null)
             {
                 throw new DomainException("Category Id does not exist!");
             }
-            _categoryCommandRepository.SoftDelete(CategoryToDelete);
+            _categoryCommandRepository.SoftDelete(categoryToDelete);
 
             await _unitOfWork.SaveChangesAsync();
 
