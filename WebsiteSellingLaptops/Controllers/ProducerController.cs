@@ -9,7 +9,7 @@ using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
-    [Route("api/Producer")]
+    [Route("api/Producers")]
     public class ProducerController : BaseApi<ProducerController>
     {
         public ProducerController(ICommonComponents<ProducerController> commonComponents) : base(commonComponents)

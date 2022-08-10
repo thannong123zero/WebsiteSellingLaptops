@@ -12,7 +12,11 @@ namespace BusinessLogic.UseCase.Crud.Producer.Command.AddProducer
     {
         public AddProducerValidation()
         {
-            RuleFor(s => s.Name).NotEmpty().WithMessage("Category Name not empty!");
+            RuleFor(s => s.Name).NotEmpty().WithMessage("Name is not empty!");
+            RuleFor(s => s.Address).NotEmpty().WithMessage("Address is not empty!");
+            RuleFor(s => s.NumberPhone).NotNull().WithMessage("PhoneNumber is not empty!")
+                .Matches(@"^\+*\d{10,15}$")
+                    .WithMessage("Phone number is invalid!");
         }
     }
 }

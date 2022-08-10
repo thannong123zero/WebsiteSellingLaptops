@@ -30,7 +30,7 @@ namespace BusinessLogic.UseCase.Crud.Producer.Command.RestoreProducer
         }
         public async Task<IActionResult> Handle(RestoreProducerRequest request, CancellationToken cancellationToken)
         {
-            var producer = _producerQueryRepository.Find(p => p.Id == request.Id).FirstOrDefault();
+            var producer = _producerQueryRepository.Find(p => p.Id == request.Id,withDeleteFlag:false).FirstOrDefault();
             if (producer == null)
             {
                 throw new DomainException("Producer Id does not exist!");

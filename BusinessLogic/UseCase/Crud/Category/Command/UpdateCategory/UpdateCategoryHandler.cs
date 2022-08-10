@@ -31,18 +31,18 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory
         }
         public async Task<CategoryViewModel> Handle(UpdateCategoryRequest request, CancellationToken cancellationToken)
         {
-            var CategoryUpdate = await _categoryQueryRepository.GetByIdAsync(request.Id);
+            var categoryUpdate = await _categoryQueryRepository.GetByIdAsync(request.Id);
 
-            if (CategoryUpdate == null)
+            if (categoryUpdate == null)
             {
                 throw new DomainException("Category Id does not exist!");
             }
-            _mapper.Map(request, CategoryUpdate);
-            CategoryUpdate.UpdateAt = DateTime.Now;
-            _categoryCommandRepository.Update(CategoryUpdate);
+            _mapper.Map(request, categoryUpdate);
+            categoryUpdate.UpdateAt = DateTime.Now;
+            _categoryCommandRepository.Update(categoryUpdate);
             await  _unitOfWork.SaveChangesAsync();
 
-            return _mapper.Map<CategoryViewModel>(CategoryUpdate);
+            return _mapper.Map<CategoryViewModel>(categoryUpdate);
         }
     }
 }
