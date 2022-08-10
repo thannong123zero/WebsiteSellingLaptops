@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.UseCase.Crud.Wallet.Command.AddWallet
+namespace BusinessLogic.UseCase.Crud.Wallet.Command.RestoreWallet
 {
-    public class AddWalletRequest : IRequest<string>
+    public class RestoreWalletRequest : IRequest<string>
     {
     }
 }
