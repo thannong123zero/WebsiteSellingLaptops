@@ -17,16 +17,13 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.DeleteCategory
         private readonly ICategoryQueryRepository _categoryQueryRepository;
         private readonly ICategoryCommandRepository _categoryCommandRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
         public DeleteCategoryHandler(ICategoryQueryRepository categoryQueryRepository,
             ICategoryCommandRepository categoryCommandRepository,
-            IUnitOfWork unitOfWork,
-            IMapper mapper)
+            IUnitOfWork unitOfWork)
         {
             _categoryQueryRepository = categoryQueryRepository;
             _categoryCommandRepository = categoryCommandRepository;
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
         }
         public async Task<IActionResult> Handle(DeleteCategoryRequest request, CancellationToken cancellationToken)
         {

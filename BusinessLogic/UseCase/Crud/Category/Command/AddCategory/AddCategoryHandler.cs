@@ -4,13 +4,7 @@ using DataAccess.EntityModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.ICategoryRepository;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 {
@@ -30,8 +24,8 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
 
         public async Task<CategoryViewModel> Handle(AddCategoryRequest request, CancellationToken cancellationToken)
         {
-            CategoryModel model = _mapper.Map<CategoryModel>(request);
-            _categoryCommandRepository.Add(model);
+            var model = _mapper.Map<CategoryModel>(request);
+             _categoryCommandRepository.Add(model);
             await _unitOfWork.SaveChangesAsync();
 
             return _mapper.Map<CategoryViewModel>(model);
