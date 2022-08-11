@@ -9,6 +9,8 @@ using BusinessLogic.UseCase.Crud.SubCategory.Command.AddSubCategory;
 using BusinessLogic.UseCase.Crud.SubCategory.Command.UpdateSubCategory;
 using BusinessLogic.UseCase.Crud.User.Command.AddUser;
 using BusinessLogic.UseCase.Crud.User.Command.UpdateUser;
+using BusinessLogic.UseCase.Crud.Wallet.Command.AddWallet;
+using BusinessLogic.UseCase.Crud.Wallet.Command.UpdateWallet;
 using BusinessLogic.ViewModel;
 using DataAccess.EntityModel;
 
@@ -42,6 +44,11 @@ namespace WebsiteSellingLaptops
             CreateMap<ManufacturingModel, ManufacturingViewModel>();
             CreateMap<AddManufacturingRequest, ManufacturingModel>();
             CreateMap<UpdateManufacturingRequest, ManufacturingModel>();
+
+            //Wallet
+            CreateMap<WalletModel, WalletViewModel>();
+            CreateMap<AddWalletRequest, WalletModel>();
+            CreateMap<UpdateWalletRequest, WalletModel>();
 
         }
     }
