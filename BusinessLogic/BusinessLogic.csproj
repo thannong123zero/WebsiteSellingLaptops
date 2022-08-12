@@ -27,28 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCase\Crud\BuyBill\Command\AddBuyBill\" />
-    <Folder Include="UseCase\Crud\BuyBill\Query\GetBuyBill\" />
-    <Folder Include="UseCase\Crud\CartDetail\Command\AddCartDetail\" />
-    <Folder Include="UseCase\Crud\CartDetail\Query\GetCartDetails\" />
-    <Folder Include="UseCase\Crud\Customer\Command\AddCustomer\" />
-    <Folder Include="UseCase\Crud\Customer\Query\GetCustomer\" />
-    <Folder Include="UseCase\Crud\DetailBuyBill\Command\AddDetailBuyBill\" />
-    <Folder Include="UseCase\Crud\DetailBuyBill\Query\GetDetailBuyBill\" />
-    <Folder Include="UseCase\Crud\DetailGoodsBill\Command\AddDetailGoodsBill\" />
-    <Folder Include="UseCase\Crud\DetailGoodsBill\Query\GetDetailGoodsBill\" />
-    <Folder Include="UseCase\Crud\DetailSaleBill\Command\AddDetailSaleBill\" />
-    <Folder Include="UseCase\Crud\DetailSaleBill\Query\GetDetailSaleBill\" />
-    <Folder Include="UseCase\Crud\DetailStock\Command\AddDetailStock\" />
-    <Folder Include="UseCase\Crud\DetailStock\Query\GetDetailStock\" />
-    <Folder Include="UseCase\Crud\GoodsBill\Command\AddGoodsBill\" />
-    <Folder Include="UseCase\Crud\GoodsBill\Query\GetGoodsBill\" />
-    <Folder Include="UseCase\Crud\ProductPrice\Command\AddProductPrice\" />
-    <Folder Include="UseCase\Crud\ProductPrice\Query\GetProductPrice\" />
-    <Folder Include="UseCase\Crud\Receipt\Command\AddReceipt\" />
-    <Folder Include="UseCase\Crud\Receipt\Query\GetReceipt\" />
-    <Folder Include="UseCase\Crud\SaleBill\Command\AddSaleBill\" />
-    <Folder Include="UseCase\Crud\SaleBill\Query\GetSaleBill\" />
     <Folder Include="UseCase\Custom\AdminView\" />
   </ItemGroup>
 
