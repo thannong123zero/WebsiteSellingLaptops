@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using BusinessLogic.UseCase.Crud.Cart.Command.AddCart;
+using BusinessLogic.UseCase.Crud.Cart.Command.UpdateCart;
 using BusinessLogic.UseCase.Crud.Category.Command.AddCategory;
 using BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory;
 using BusinessLogic.UseCase.Crud.Manufacturing.Command.AddManufacturing;
@@ -56,6 +58,11 @@ namespace WebsiteSellingLaptops
             CreateMap<WareHouseModel, WareHouseViewModel>();
             CreateMap<AddWareHouseRequest, WareHouseModel>();
             CreateMap<UpdateWareHouseRequest, WareHouseModel>();
+
+            //Cart
+            CreateMap<CartModel, CartViewModel>();
+            CreateMap<AddCartRequest, CartModel>();
+            CreateMap<UpdateCartRequest, CartModel>();
         }
     }
 }

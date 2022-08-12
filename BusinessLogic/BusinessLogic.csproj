@@ -31,8 +31,6 @@
     <Folder Include="UseCase\Crud\BuyBill\Query\GetBuyBill\" />
     <Folder Include="UseCase\Crud\CartDetail\Command\AddCartDetail\" />
     <Folder Include="UseCase\Crud\CartDetail\Query\GetCartDetails\" />
-    <Folder Include="UseCase\Crud\Cart\Command\AddCart\" />
-    <Folder Include="UseCase\Crud\Cart\Query\GetCart\" />
     <Folder Include="UseCase\Crud\Customer\Command\AddCustomer\" />
     <Folder Include="UseCase\Crud\Customer\Query\GetCustomer\" />
     <Folder Include="UseCase\Crud\DetailBuyBill\Command\AddDetailBuyBill\" />
