@@ -7,7 +7,7 @@ namespace BusinessLogic.UseCase.Crud.Category.Command.AddCategory
     {
         public AddCategoryValidation()
         {
-            RuleFor(s => s.Name).NotEmpty().WithMessage("Category Name not empty!");
+            RuleFor(s => s.Name).NotEmpty().WithMessage("Category Name is not empty!");
         }
     }
 }

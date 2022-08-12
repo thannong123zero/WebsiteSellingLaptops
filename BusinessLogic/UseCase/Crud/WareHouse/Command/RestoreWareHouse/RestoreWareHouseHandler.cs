@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BusinessLogic.ViewModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.IWareHouseRepository;
 using MediatR;
@@ -11,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ZWA.Core.Domain.Exceptions;
 
-namespace BusinessLogic.UseCase.Crud.WareHouse.Command.UpdateWareHouse
+namespace BusinessLogic.UseCase.Crud.WareHouse.Command.RestoreWareHouse
 {
-    public class UpdateWareHouseHandler : IRequestHandler<UpdateWareHouseRequest, WareHouseViewModel>
+    public class RestoreWareHouseHandler : IRequestHandler<RestoreWareHouseRequest, IActionResult>
     {
         private readonly IWareHouseCommandRepository _wareHouseCommandRepository;
         private readonly IWareHouseQueryRepository _wareHouseQueryRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public UpdateWareHouseHandler(IWareHouseCommandRepository wareHouseCommandRepository,
+        public RestoreWareHouseHandler(IWareHouseCommandRepository wareHouseCommandRepository,
             IWareHouseQueryRepository wareHouseQueryRepository,
             IUnitOfWork unitOfWork, IMapper mapper)
         {
@@ -28,20 +27,18 @@ namespace BusinessLogic.UseCase.Crud.WareHouse.Command.UpdateWareHouse
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<WareHouseViewModel> Handle(UpdateWareHouseRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Handle(RestoreWareHouseRequest request, CancellationToken cancellationToken)
         {
-            var wareHouse = await _wareHouseQueryRepository.GetByIdAsync(request.Id);
-
+            var wareHouse = _wareHouseQueryRepository.Find(p => p.Id == request.Id,withDeleteFlag:false).FirstOrDefault();
             if (wareHouse == null)
             {
                 throw new DomainException("WareHouse Id does not exist!");
             }
-            _mapper.Map(request, wareHouse);
-            wareHouse.UpdateAt = DateTime.Now;
-            _wareHouseCommandRepository.Update(wareHouse);
+            _wareHouseCommandRepository.RestoreDelete(wareHouse);
+
             await _unitOfWork.SaveChangesAsync();
 
-            return _mapper.Map<WareHouseViewModel>(wareHouse);
+            return new StatusCodeResult(200);
         }
     }
 }
