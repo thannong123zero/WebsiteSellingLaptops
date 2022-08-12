@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220810081252_InitialModel")]
+    [Migration("20220812030228_InitialModel")]
     partial class InitialModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,15 +54,15 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1bdf254c-5633-4d7b-8bce-5bfb126db00a"),
-                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5273),
+                            Id = new Guid("7e770a71-8eb9-467a-846e-ba6c237dfaff"),
+                            CreateAt = new DateTime(2022, 8, 12, 10, 2, 28, 233, DateTimeKind.Local).AddTicks(5375),
                             IsDelete = false,
                             Name = "Hóa đơn nhập"
                         },
                         new
                         {
-                            Id = new Guid("bc6474df-106d-4e32-9ca3-f62fa23616f7"),
-                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5284),
+                            Id = new Guid("4141c86b-1750-4b0c-9efd-4b5e31ebe35f"),
+                            CreateAt = new DateTime(2022, 8, 12, 10, 2, 28, 233, DateTimeKind.Local).AddTicks(5385),
                             IsDelete = false,
                             Name = "Hóa đơn xuất"
                         });
@@ -388,7 +388,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(1249));
+                        .HasDefaultValue(new DateTime(2022, 8, 12, 10, 2, 28, 235, DateTimeKind.Local).AddTicks(7975));
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
@@ -478,15 +478,15 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3f6002bc-6e78-4fea-aceb-e17167a6c1a6"),
-                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7100),
+                            Id = new Guid("c4d1b1eb-e19c-4028-86f5-81efe6bb64dd"),
+                            CreateAt = new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(2943),
                             IsDelete = false,
                             Name = "Tiền mặt"
                         },
                         new
                         {
-                            Id = new Guid("75b44747-dde7-4879-8445-11d95c303179"),
-                            CreateAt = new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7105),
+                            Id = new Guid("fa6d52a0-8632-4453-910e-dbd9235800d8"),
+                            CreateAt = new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(2948),
                             IsDelete = false,
                             Name = "Chuyển khoản"
                         });
@@ -541,7 +541,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(8488));
+                        .HasDefaultValue(new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(4234));
 
                     b.Property<string>("Descrition")
                         .IsRequired()
@@ -591,7 +591,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(2396));
+                        .HasDefaultValue(new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(7862));
 
                     b.Property<int>("Discount")
                         .ValueGeneratedOnAdd()
@@ -629,7 +629,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(3771));
+                        .HasDefaultValue(new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(9110));
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -668,7 +668,7 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("CreateAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 8, 10, 15, 12, 52, 165, DateTimeKind.Local).AddTicks(1024));
+                        .HasDefaultValue(new DateTime(2022, 8, 12, 10, 2, 28, 237, DateTimeKind.Local).AddTicks(5479));
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
@@ -871,7 +871,7 @@ namespace DataAccess.Migrations
                     b.ToTable("Wallet");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.WareHourseModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.WareHouseModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -901,7 +901,7 @@ namespace DataAccess.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("WareHourse");
+                    b.ToTable("WareHouse");
                 });
 
             modelBuilder.Entity("DataAccess.EntityModel.WithdrawMoneyModel", b =>
@@ -1094,14 +1094,14 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("90ec2b4b-9810-4ab6-adbb-66ba1b076e8f"),
-                            ConcurrencyStamp = "3e33b4d0-68ae-4746-969d-df532638f9bd",
+                            Id = new Guid("8efbe855-b6cb-46fd-a0e7-f1429cc8a8f3"),
+                            ConcurrencyStamp = "de1351c6-8b6c-42e0-a459-c86b43e169be",
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("652a07ff-dd5a-42de-9d0b-7fc535ca4380"),
-                            ConcurrencyStamp = "3dffcf56-2d00-438b-960d-91e9ed3591b4",
+                            Id = new Guid("193fb2e1-d313-4f15-90e3-9ec79c7cad58"),
+                            ConcurrencyStamp = "940c1902-5be1-4691-8bc3-626e6988a4d7",
                             Name = "Staff"
                         });
                 });
@@ -1229,7 +1229,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.EntityModel.WareHourseModel", "WareHourse")
+                    b.HasOne("DataAccess.EntityModel.WareHouseModel", "WareHourse")
                         .WithMany("DetailStocks")
                         .HasForeignKey("WareHourseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1254,7 +1254,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("DataAccess.EntityModel.WareHourseModel", "WareHourse")
+                    b.HasOne("DataAccess.EntityModel.WareHouseModel", "WareHourse")
                         .WithMany("GoodsBills")
                         .HasForeignKey("WareHourseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1541,7 +1541,7 @@ namespace DataAccess.Migrations
                     b.Navigation("WithdrawMoneys");
                 });
 
-            modelBuilder.Entity("DataAccess.EntityModel.WareHourseModel", b =>
+            modelBuilder.Entity("DataAccess.EntityModel.WareHouseModel", b =>
                 {
                     b.Navigation("DetailStocks");
 

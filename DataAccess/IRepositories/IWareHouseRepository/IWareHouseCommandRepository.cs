@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.IRepositories.IWareHourseRepository
+namespace DataAccess.IRepositories.IWareHouseRepository
 {
-    public interface IWareHourseCommandRepository : IGeneralCommandRepository<WareHourseModel>
+    public interface IWareHouseCommandRepository : IGeneralCommandRepository<WareHouseModel>
     {
     }
 }

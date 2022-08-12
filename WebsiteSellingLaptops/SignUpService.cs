@@ -39,8 +39,6 @@ using DataAccess.IRepositories.ISubCategoryRepository;
 using DataAccess.Repositories.SubCategoryRepository;
 using DataAccess.IRepositories.IUserRepository;
 using DataAccess.Repositories.UserRepository;
-using DataAccess.IRepositories.IWareHourseRepository;
-using DataAccess.Repositories.WareHourseRepository;
 using DataAccess.IRepositories.IWithdrawMoneyRepository;
 using DataAccess.Repositories.WithdrawMoneyRepository;
 using DataAccess.IRepositories;
@@ -69,6 +67,8 @@ using Microsoft.AspNetCore.Mvc;
 using ZWA.Core.Domain.Exceptions;
 using DataAccess.IRepositories.IManufacturingRepository;
 using DataAccess.Repositories.ManufacturingRepository;
+using DataAccess.Repositories.WareHouseRepository;
+using DataAccess.IRepositories.IWareHouseRepository;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -183,7 +183,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<ISubCategoryCommandRepository, SubCategoryCommandRepository>();
             services.AddScoped<IUserCommandRepository, UserCommandRepository>();
             services.AddScoped<IWalletCommandRepository, WalletCommandRepository>();
-            services.AddScoped<IWareHourseCommandRepository, WareHourseCommandRepository>();
+            services.AddScoped<IWareHouseCommandRepository, WareHouseCommandRepository>();
             services.AddScoped<IWithdrawMoneyCommandRepository, WithdrawMoneyCommandRepository>();
 
             return services;
@@ -212,7 +212,7 @@ namespace WebsiteSellingLaptops
             services.AddScoped<ISubCategoryQueryRepository, SubCategoryQueryRepository>();
             services.AddScoped<IUserQueryRepository, UserQueryRepository>();
             services.AddScoped<IWalletQueryRepository, WalletQueryRepository>();
-            services.AddScoped<IWareHourseQueryRepository, WareHourseQueryRepository>();
+            services.AddScoped<IWareHouseQueryRepository, WareHouseQueryRepository>();
             services.AddScoped<IWithdrawMoneyQueryRepository, WithdrawMoneyQueryRepository>();
             return services;
         }

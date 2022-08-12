@@ -170,7 +170,7 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WareHourse",
+                name: "WareHouse",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -182,7 +182,7 @@ namespace DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WareHourse", x => x.Id);
+                    table.PrimaryKey("PK_WareHouse", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -419,7 +419,7 @@ namespace DataAccess.Migrations
                     WareHourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BillTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Money = table.Column<double>(type: "float", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(1249)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 12, 10, 2, 28, 235, DateTimeKind.Local).AddTicks(7975)),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -438,9 +438,9 @@ namespace DataAccess.Migrations
                         principalTable: "Users",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_GoodsBill_WareHourse_WareHourseId",
+                        name: "FK_GoodsBill_WareHouse_WareHourseId",
                         column: x => x.WareHourseId,
-                        principalTable: "WareHourse",
+                        principalTable: "WareHouse",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -455,7 +455,7 @@ namespace DataAccess.Migrations
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TotalValue = table.Column<double>(type: "float", nullable: false),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 10, 15, 12, 52, 165, DateTimeKind.Local).AddTicks(1024)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 12, 10, 2, 28, 237, DateTimeKind.Local).AddTicks(5479)),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -492,7 +492,7 @@ namespace DataAccess.Migrations
                     Img = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WarrantyPeriod = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(8488)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(4234)),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -521,7 +521,7 @@ namespace DataAccess.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SaleBillId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CollectMoney = table.Column<double>(type: "float", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(3771)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(9110)),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -683,9 +683,9 @@ namespace DataAccess.Migrations
                         principalTable: "Product",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_DetailStock_WareHourse_WareHourseId",
+                        name: "FK_DetailStock_WareHouse_WareHourseId",
                         column: x => x.WareHourseId,
-                        principalTable: "WareHourse",
+                        principalTable: "WareHouse",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -699,7 +699,7 @@ namespace DataAccess.Migrations
                     Price = table.Column<double>(type: "float", nullable: false),
                     Discount = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 10, 15, 12, 52, 164, DateTimeKind.Local).AddTicks(2396)),
+                    CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(7862)),
                     UpdateAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -718,8 +718,8 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CreateAt", "IsDelete", "Name", "UpdateAt" },
                 values: new object[,]
                 {
-                    { new Guid("1bdf254c-5633-4d7b-8bce-5bfb126db00a"), new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5273), false, "Hóa đơn nhập", null },
-                    { new Guid("bc6474df-106d-4e32-9ca3-f62fa23616f7"), new DateTime(2022, 8, 10, 15, 12, 52, 160, DateTimeKind.Local).AddTicks(5284), false, "Hóa đơn xuất", null }
+                    { new Guid("4141c86b-1750-4b0c-9efd-4b5e31ebe35f"), new DateTime(2022, 8, 12, 10, 2, 28, 233, DateTimeKind.Local).AddTicks(5385), false, "Hóa đơn xuất", null },
+                    { new Guid("7e770a71-8eb9-467a-846e-ba6c237dfaff"), new DateTime(2022, 8, 12, 10, 2, 28, 233, DateTimeKind.Local).AddTicks(5375), false, "Hóa đơn nhập", null }
                 });
 
             migrationBuilder.InsertData(
@@ -727,8 +727,8 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CreateAt", "IsDelete", "Name", "UpdateAt" },
                 values: new object[,]
                 {
-                    { new Guid("3f6002bc-6e78-4fea-aceb-e17167a6c1a6"), new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7100), false, "Tiền mặt", null },
-                    { new Guid("75b44747-dde7-4879-8445-11d95c303179"), new DateTime(2022, 8, 10, 15, 12, 52, 163, DateTimeKind.Local).AddTicks(7105), false, "Chuyển khoản", null }
+                    { new Guid("c4d1b1eb-e19c-4028-86f5-81efe6bb64dd"), new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(2943), false, "Tiền mặt", null },
+                    { new Guid("fa6d52a0-8632-4453-910e-dbd9235800d8"), new DateTime(2022, 8, 12, 10, 2, 28, 236, DateTimeKind.Local).AddTicks(2948), false, "Chuyển khoản", null }
                 });
 
             migrationBuilder.InsertData(
@@ -736,8 +736,8 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Discriminator", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("652a07ff-dd5a-42de-9d0b-7fc535ca4380"), "3dffcf56-2d00-438b-960d-91e9ed3591b4", "RoleModel", "Staff", null },
-                    { new Guid("90ec2b4b-9810-4ab6-adbb-66ba1b076e8f"), "3e33b4d0-68ae-4746-969d-df532638f9bd", "RoleModel", "Admin", null }
+                    { new Guid("193fb2e1-d313-4f15-90e3-9ec79c7cad58"), "940c1902-5be1-4691-8bc3-626e6988a4d7", "RoleModel", "Staff", null },
+                    { new Guid("8efbe855-b6cb-46fd-a0e7-f1429cc8a8f3"), "de1351c6-8b6c-42e0-a459-c86b43e169be", "RoleModel", "Admin", null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -988,8 +988,8 @@ namespace DataAccess.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WareHourse_Name",
-                table: "WareHourse",
+                name: "IX_WareHouse_Name",
+                table: "WareHouse",
                 column: "Name",
                 unique: true);
         }
@@ -1060,7 +1060,7 @@ namespace DataAccess.Migrations
                 name: "BillType");
 
             migrationBuilder.DropTable(
-                name: "WareHourse");
+                name: "WareHouse");
 
             migrationBuilder.DropTable(
                 name: "Manufacturing");

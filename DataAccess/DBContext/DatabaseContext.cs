@@ -14,7 +14,6 @@ namespace DataAccess.DBContext
     public class DatabaseContext :  IdentityDbContext<UserModel,IdentityRole<Guid>,Guid>
     {
         #region DbsetEntity
-        
         public DbSet<BuyBillModel> BuyBill { get; set; }
         public DbSet<CartModel> Cart { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
@@ -37,7 +36,7 @@ namespace DataAccess.DBContext
         public DbSet<SubCategoryModel> SubCategory { get; set; }
         public DbSet<UserModel> User { get; set; }
         public DbSet<WalletModel> Wallet { get; set; }
-        public DbSet<WareHourseModel> WareHourse { get; set; }
+        public DbSet<WareHouseModel> WareHouse { get; set; }
         #endregion
         public DatabaseContext() : base() { }
         public DatabaseContext(DbContextOptions options) : base(options) { }

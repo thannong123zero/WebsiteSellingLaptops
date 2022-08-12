@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityConfiguration
 {
-    public class WareHourseConfiguration : IEntityTypeConfiguration<WareHourseModel>
+    public class WareHouseConfiguration : IEntityTypeConfiguration<WareHouseModel>
     {
-        public void Configure(EntityTypeBuilder<WareHourseModel> builder)
+        public void Configure(EntityTypeBuilder<WareHouseModel> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(s => s.Name).IsRequired().HasMaxLength(50);

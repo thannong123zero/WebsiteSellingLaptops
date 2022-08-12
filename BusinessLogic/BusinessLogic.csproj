@@ -51,8 +51,8 @@
     <Folder Include="UseCase\Crud\Receipt\Query\GetReceipt\" />
     <Folder Include="UseCase\Crud\SaleBill\Command\AddSaleBill\" />
     <Folder Include="UseCase\Crud\SaleBill\Query\GetSaleBill\" />
-    <Folder Include="UseCase\Crud\WareHourse\Command\AddWareHourse\" />
-    <Folder Include="UseCase\Crud\WareHourse\Query\GetWareHourse\" />
+    <Folder Include="UseCase\Crud\WareHouse\Command\RestoreWareHouse\" />
+    <Folder Include="UseCase\Crud\WareHouse\Query\GetWareHouse\" />
     <Folder Include="UseCase\Custom\AdminView\" />
   </ItemGroup>
 

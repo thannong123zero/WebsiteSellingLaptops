@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.EntityModel
 {
-    public class WareHourseModel : BaseEntityModel
+    public class WareHouseModel : BaseEntityModel
     {
         public string Name { get; set; }
         public string Address { get; set; }

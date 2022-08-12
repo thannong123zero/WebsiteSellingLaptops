@@ -16,7 +16,7 @@ namespace DataAccess.EntityModel
         public DateTime CreateAt { get; set; }
         public UserModel User { get; set; }
         public BillTypeModel BillType { get; set; }
-        public WareHourseModel WareHourse { get; set; }
+        public WareHouseModel WareHourse { get; set; }
         public ICollection<DetailGoodsBillModel>? DetailGoodsBills { get; set; }
     }
 }
