@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using BusinessLogic.Extentions;
 using BusinessLogic.ViewModel;
 using DataAccess.EntityModel;
 using DataAccess.IRepositories;
 using DataAccess.IRepositories.IUserRepository;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +16,33 @@ namespace BusinessLogic.UseCase.Crud.User.Command.AddUser
 {
     public class AddUserHandler : IRequestHandler<AddUserRequest, UserViewModel>
     {
-        private readonly IUserCommandRepository _userCommandRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<UserModel> _userManager;
         private readonly IMapper _mapper;
-        public AddUserHandler(IUserCommandRepository userCommandRepository,
-            IUnitOfWork unitOfWork,
+        public AddUserHandler(
+            UserManager<UserModel> userManager,
             IMapper mapper)
         {
-            _userCommandRepository = userCommandRepository;
-            _unitOfWork = unitOfWork;
+            _userManager = userManager;
             _mapper = mapper;
         }
         public async Task<UserViewModel> Handle(AddUserRequest request, CancellationToken cancellationToken)
-        {
-            UserModel user = _mapper.Map<UserModel>(request);
-            user.PasswordHash = request.Password;
-            _userCommandRepository.Add(user);
-            await _unitOfWork.SaveChangesAsync();
+        { 
+            var user = _mapper.Map<UserModel>(request);
+            user.UserName = request.Email;
+
+            var result = await _userManager.CreateAsync(user, request.Password);
+
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(user, "Staff");
+            }
+            if(result.Errors != null)
+            {
+                result.Errors.ToList().ForEach(error =>
+                {
+                    throw new Exception(error.ToString());
+                });
+            }
 
             return _mapper.Map<UserViewModel>(user);
         }

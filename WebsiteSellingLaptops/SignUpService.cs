@@ -69,6 +69,8 @@ using DataAccess.IRepositories.IManufacturingRepository;
 using DataAccess.Repositories.ManufacturingRepository;
 using DataAccess.Repositories.WareHouseRepository;
 using DataAccess.IRepositories.IWareHouseRepository;
+using DataAccess.IRepositories.IRoleRepository;
+using DataAccess.Repositories.RoleRepository;
 
 #endregion
 namespace WebsiteSellingLaptops
@@ -94,10 +96,17 @@ namespace WebsiteSellingLaptops
                     b => b.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
 
             // sign up identity 
-            services.AddIdentity<UserModel, RoleModel>()
-                .AddEntityFrameworkStores<DatabaseContext>()
-                .AddDefaultTokenProviders();
-            #endregion            
+            //services.AddIdentity<UserModel, RoleModel>()
+            //    .AddEntityFrameworkStores<DatabaseContext>()
+            //    .AddDefaultTokenProviders();
+
+            services.AddIdentityCore<UserModel>()
+                .AddRoles<RoleModel>()
+            .AddTokenProvider<DataProtectorTokenProvider<UserModel>>("MyShop")
+            .AddEntityFrameworkStores<DatabaseContext>()
+            .AddDefaultTokenProviders();
+
+            #endregion
             #region Add middle ware manager fluent validation
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestValidationHandler<,>));
             var mvcBuilder = services.AddRouting(ex => ex.LowercaseUrls = true)
@@ -200,7 +209,8 @@ namespace WebsiteSellingLaptops
             services.AddScoped<IDetailGoodsBillQueryRepository, DetailGoodsBillQueryRepository>();
             services.AddScoped<IDetailSaleBillQueryRepository, DetailSaleBillQueryRepository>();
             services.AddScoped<IDetailStockQueryRepository, DetailStockQueryRepository>();
-            //services.AddScoped<IGeneralQueryRepository,GeneralQueryRepository<Entity>();
+            //services.AddScoped<IGeneralQueryRepository,GeneralQueryRepository<Entity>()
+            services.AddScoped<IRoleQueryRepository,RoleQueryRepository>();
             services.AddScoped<IGoodsBillQueryRepository, GoodsBillQueryRepository>();
             services.AddScoped<IManufacturingQueryRepository, ManufacturingQueryRepository>();
             services.AddScoped<IPaymentMethodQueryRepository, PaymentMethodQueryRepository>();

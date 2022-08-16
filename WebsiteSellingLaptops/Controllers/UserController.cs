@@ -4,6 +4,7 @@ using BusinessLogic.UseCase.Crud.User.Command.RestoreUser;
 using BusinessLogic.UseCase.Crud.User.Command.UpdateUser;
 using BusinessLogic.UseCase.Crud.User.Query.GetUser;
 using BusinessLogic.UseCase.Crud.User.Query.GetUsers;
+using BusinessLogic.UseCase.Crud.User.Query.Login;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WebsiteSellingLaptops.CustomController;
@@ -55,5 +56,13 @@ namespace WebsiteSellingLaptops.Controllers
     {
         return Success(data: await _commonComponents.Router.Send(getUserRequest));
     }
+
+    [HttpPut]
+    [Route("Login")]
+    public async Task<IResponse> Login([FromBody] LoginRequest loginRequest)
+        {
+            return Success(data: await _commonComponents.Router.Send(loginRequest));
+        }
+
     }
 }

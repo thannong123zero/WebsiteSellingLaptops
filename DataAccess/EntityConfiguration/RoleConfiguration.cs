@@ -15,8 +15,8 @@ namespace DataAccess.EntityConfiguration
         public void Configure(EntityTypeBuilder<RoleModel> builder)
         {
             builder.HasData(
-                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Admin" },
-                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Staff" });
+                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole<Guid>() { Id = Guid.NewGuid(), Name = "Staff", NormalizedName = "STAFF" });
         }
 
     }

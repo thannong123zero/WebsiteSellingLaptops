@@ -22,17 +22,17 @@ namespace BusinessLogic.UseCase.Crud.User.Command.AddUser
                 .Matches(@"^\+*\d{10,15}$")
                     .WithMessage("Phone number is invalid!");
 
-            RuleFor(s => s.Password)
-                .MinimumLength(8)
-                .WithMessage("Password Minimum of 8 characters!");
+            //RuleFor(s => s.Password)
+            //    .MinimumLength(8)
+            //    .WithMessage("Password Minimum of 8 characters!");
 
-            RuleFor(x => x.PasswordConfirmed)
-                .Equal(x => x.Password)
-                    .WithMessage("Confirm password does not match");
+            //RuleFor(x => x.PasswordConfirmed)
+            //    .Equal(x => x.Password)
+            //        .WithMessage("Confirm password does not match");
 
-            RuleFor(x => x.PasswordConfirmed)
-                .NotEmpty()
-                    .WithMessage("Password is required");
+            //RuleFor(x => x.PasswordConfirmed)
+            //    .NotEmpty()
+            //        .WithMessage("Password is required");
         }
 }
 }

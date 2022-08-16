@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BusinessLogic.UseCase.Crud.User.Command.AddUser
 {
     public class AddUserRequest : IRequest<UserViewModel>
-    {
+    {   
         public string CitizenId { get; set; }
         public string FullName { get; set; }
         public DateTime BirthDay { get; set; }
