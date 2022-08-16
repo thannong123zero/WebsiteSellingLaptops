@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.Manufacturing.Command.RestoreManufacturing;
 using BusinessLogic.UseCase.Crud.Manufacturing.Command.UpdateManufacturing;
 using BusinessLogic.UseCase.Crud.Manufacturing.Query.GetManufacturing;
 using BusinessLogic.UseCase.Crud.Manufacturing.Query.GetManufacturings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Manufacturings")]
+    [Authorize(Roles ="Admin,Staff")]
     public class ManufacturingController : BaseApi<ManufacturingController>
     {
         public ManufacturingController(ICommonComponents<ManufacturingController> commonComponents) : base(commonComponents){}
@@ -43,6 +45,7 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpGet]
         [Route("GetManufacturings")]
+        [AllowAnonymous]
         public async Task<IResponse> GetManufacturings([FromQuery] GetManufacturingsRequest getManufacturingsRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getManufacturingsRequest));

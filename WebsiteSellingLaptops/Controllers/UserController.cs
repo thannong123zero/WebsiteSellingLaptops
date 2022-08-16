@@ -5,6 +5,7 @@ using BusinessLogic.UseCase.Crud.User.Command.UpdateUser;
 using BusinessLogic.UseCase.Crud.User.Query.GetUser;
 using BusinessLogic.UseCase.Crud.User.Query.GetUsers;
 using BusinessLogic.UseCase.Crud.User.Query.Login;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WebsiteSellingLaptops.CustomController;
@@ -12,6 +13,7 @@ using WebsiteSellingLaptops.CustomController;
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Users")]
+    [Authorize(Roles ="Admin, Staff")]
     public class UserController :BaseApi<UserController>
     {
         public UserController(ICommonComponents<UserController> commonComponents) : base(commonComponents) { }

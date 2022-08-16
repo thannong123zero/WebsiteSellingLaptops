@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.Wallet.Command.RestoreWallet;
 using BusinessLogic.UseCase.Crud.Wallet.Command.UpdateWallet;
 using BusinessLogic.UseCase.Crud.Wallet.Query.GetWallet;
 using BusinessLogic.UseCase.Crud.Wallet.Query.GetWallets;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Wallets")]
+    [Authorize(Roles = "Admin")]
     public class WalletController : BaseApi<WalletController>
     {
 

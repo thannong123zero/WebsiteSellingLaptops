@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.Producer.Command.RestoreProducer;
 using BusinessLogic.UseCase.Crud.Producer.Command.UpdateProducer;
 using BusinessLogic.UseCase.Crud.Producer.Query.GetProducer;
 using BusinessLogic.UseCase.Crud.Producer.Query.GetProducers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Producers")]
+    [Authorize(Roles = "Admin")]
     public class ProducerController : BaseApi<ProducerController>
     {
         public ProducerController(ICommonComponents<ProducerController> commonComponents) : base(commonComponents)
@@ -44,12 +46,14 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpGet]
         [Route("GetProducers")]
+        [AllowAnonymous]
         public async Task<IResponse> GetProducers([FromQuery] GetProducersRequest getProducersRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getProducersRequest));
         }
         [HttpGet]
         [Route("GetProducer")]
+        [AllowAnonymous]
         public async Task<IResponse> GetProducer([FromQuery] GetProducerRequest getProducerRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getProducerRequest));

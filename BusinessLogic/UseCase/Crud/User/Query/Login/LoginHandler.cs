@@ -51,7 +51,7 @@ namespace BusinessLogic.UseCase.Crud.User.Query.Login
 
             login.Token = token;
             login.UserId = user.Id.ToString();
-            login.RefreshToken = await CreateRefreshToken(user);
+            //login.RefreshToken = await CreateRefreshToken(user);
             
 
             return login;
@@ -87,17 +87,10 @@ namespace BusinessLogic.UseCase.Crud.User.Query.Login
         }
         public async Task<string> CreateRefreshToken(UserModel user)
         {
-            try
-            {
             await _userManager.RemoveAuthenticationTokenAsync(user, _loginProvider, _refreshToken);
             var newRefreshToken = await _userManager.GenerateUserTokenAsync(user, _loginProvider, _refreshToken);
             var result = await _userManager.SetAuthenticationTokenAsync(user, _loginProvider, _refreshToken, newRefreshToken);
                 return newRefreshToken;
-            }catch(Exception error)
-            {
-                throw new Exception(error.Message.ToString());
-            }
-            return null;
         }
     }
 }

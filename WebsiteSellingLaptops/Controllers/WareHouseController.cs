@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.WareHouse.Command.RestoreWareHouse;
 using BusinessLogic.UseCase.Crud.WareHouse.Command.UpdateWareHouse;
 using BusinessLogic.UseCase.Crud.WareHouse.Query.GetWareHouse;
 using BusinessLogic.UseCase.Crud.WareHouse.Query.GetWareHouses;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/WareHouses")]
+    [Authorize(Roles = "Admin,Staff")]
     public class WareHouseController : BaseApi<WareHouseController>
     {
 

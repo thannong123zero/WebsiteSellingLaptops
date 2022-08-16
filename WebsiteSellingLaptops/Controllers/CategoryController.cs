@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.Category.Command.RestoreCategory;
 using BusinessLogic.UseCase.Crud.Category.Command.UpdateCategory;
 using BusinessLogic.UseCase.Crud.Category.Query.GetCategories;
 using BusinessLogic.UseCase.Crud.Category.Query.GetCategory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/Categories")]
+    [Authorize(Roles = "Admin,Staff")]
     public class CategoryController : BaseApi<CategoryController>
     {
 
@@ -45,6 +47,7 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpGet]
         [Route("GetCategories")]
+        [AllowAnonymous]
         public async Task<IResponse> GetCategories([FromQuery] GetCategoriesRequest getCategoriesRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getCategoriesRequest));

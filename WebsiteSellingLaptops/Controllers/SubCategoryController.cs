@@ -4,12 +4,14 @@ using BusinessLogic.UseCase.Crud.SubCategory.Command.RestoreSubCategory;
 using BusinessLogic.UseCase.Crud.SubCategory.Command.UpdateSubCategory;
 using BusinessLogic.UseCase.Crud.SubCategory.Query.GetSubCategories;
 using BusinessLogic.UseCase.Crud.SubCategory.Query.GetSubCategory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebsiteSellingLaptops.CustomController;
 
 namespace WebsiteSellingLaptops.Controllers
 {
     [Route("api/SubCategories")]
+    [Authorize(Roles = "Admin,Staff")]
     public class SubCategoryController : BaseApi<SubCategoryController>
     {
 
@@ -47,6 +49,7 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpGet]
         [Route("GetSubCategories")]
+        [AllowAnonymous]
         public async Task<IResponse> GetSubCategories([FromQuery] GetSubCategoriesRequest getSubCategoriesRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getSubCategoriesRequest));
@@ -54,6 +57,7 @@ namespace WebsiteSellingLaptops.Controllers
 
         [HttpGet]
         [Route("GetSubCategory")]
+        [AllowAnonymous]
         public async Task<IResponse> GetSubCategory([FromQuery] GetSubCategoryRequest getSubCategoryRequest)
         {
             return Success(data: await _commonComponents.Router.Send(getSubCategoryRequest));
